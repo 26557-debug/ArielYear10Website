@@ -3,7 +3,7 @@
 
 <div id="intro">
   <video id="intro-video" autoplay muted>
-    <source src="images/intro-video.MOV" type="video/mp4">
+    <source src="images/intro-video.MOV">
   </video>
 </div>
 <div id="main-content"></div>
@@ -36,7 +36,7 @@ video.addEventListener("ended", () => {
 <!-- This is the main body of the website- ALL your content goes AFTER the <body> tag and before the </body> tag -->
 <body>
 <video id="bg-video" autoplay muted loop playsinline>
-  <source src="images/intro-video.MOV" type="video/MOV">
+  <source src="images/IMG_4205.MOV">
 </video>
     <!-- The Hero Section -------------------------------------------------------------------------------------- -->
     <section class="hero">
@@ -44,7 +44,6 @@ video.addEventListener("ended", () => {
 
         <button id="video-btn">Pause Video</button>
 <script>
-const video = document.getElementById("bg-video");
 const btn = document.getElementById("video-btn");
 
 btn.onclick = () => {
