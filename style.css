@@ -63,8 +63,16 @@ html {
     height: 100%;
     /* The Font Family- Really important!! */
     font-family: Arial, sans-serif;
-    box-sizing: border-box;
-    background-image: url('images/intro-video.MOV');
+    box-sizing: border-box;}
+
+#bg-video {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: -1;
 }
 
 /* reset for images to ensure they ar 100% of the parent container width */
