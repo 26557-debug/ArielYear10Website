@@ -41,7 +41,23 @@ video.addEventListener("ended", () => {
     <!-- The Hero Section -------------------------------------------------------------------------------------- -->
     <section class="hero">
         <div class="hero-text">Ariel's Brunside<br>Digital Tech Adventure</div>
-    
+
+        <button id="video-btn">Pause Video</button>
+<script>
+const video = document.getElementById("bg-video");
+const btn = document.getElementById("video-btn");
+
+btn.onclick = () => {
+  if (video.paused) {
+    video.play();
+    btn.textContent = "Pause Video";
+  } else {
+    video.pause();
+    btn.textContent = "Play Video";
+  }
+};
+</script>
+
     </section>
 
 <div class="leaves">
