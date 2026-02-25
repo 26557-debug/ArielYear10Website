@@ -42,7 +42,7 @@ video.addEventListener("ended", () => {
     <section class="hero">
         <div class="hero-text">Ariel's Brunside<br>Digital Tech Adventure</div>
 
-        <button id="video-btn">Pause Video</button>
+<button id="video-btn"> ▶ Pause Video</button>
 <script>
 const video = document.getElementById("bg-video");
 const btn = document.getElementById("video-btn");
@@ -50,10 +50,10 @@ const btn = document.getElementById("video-btn");
 btn.onclick = () => {
   if (video.paused) {
     video.play();
-    btn.textContent = "Pause Video";
+    btn.textContent = "▶ Pause Video";
   } else {
     video.pause();
-    btn.textContent = "Play Video";
+    btn.textContent = "▶ Play Video";
   }
 };
 </script>
