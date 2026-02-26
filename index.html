@@ -84,8 +84,25 @@ function playMusic() {
     <section class="topic">
         <!-- the topic title a big bar with text in it -->
         <div class="topic-title">
-            <h1>Image Creation</h1>
-            <h1>Websites</h1>
+            <div class="tab-nav">
+        <button class="tab-btn active" data-tab="image-creation">Image Creation</button>
+        <button class="tab-btn" data-tab="websites">Websites</button>
+    </div>
+
+    <div id="image" class="tab-content">
+  <div class="topic-content">
+    <div class="topic-card">Term 1</div>
+    <div class="topic-card">Term 2</div>
+  </div>
+</div>
+
+<div id="web" class="tab-content" style="display:none;">
+  <div class="topic-content">
+    <div class="topic-card">Website 1</div>
+    <div class="topic-card">Website 2</div>
+  </div>
+</div>
+
         </div>
         <!-- now a three column grid of images -->
         <div href="term1.html" class="topic-content">
@@ -118,6 +135,28 @@ function playMusic() {
     <footer class="footer">
         <p>&copy; 2026 My Showcase Website By Ariel Yang</p>
     </footer>
+
+<script>
+const buttons = document.querySelectorAll(".tab-btn");
+const contents = document.querySelectorAll(".tab-content");
+
+buttons.forEach(button => {
+  button.addEventListener("click", () => {
+
+    /* 按钮高亮切换 */
+    buttons.forEach(btn => btn.classList.remove("active"));
+    button.classList.add("active");
+
+    /* 内容切换 */
+    const target = button.dataset.tab;
+
+    contents.forEach(content => {
+      content.style.display = content.id === target ? "block" : "none";
+    });
+
+  });
+});
+</script>
 
 <!-- The end of the whole page- no more content after this! -->
 </body>
