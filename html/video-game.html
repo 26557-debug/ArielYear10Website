@@ -3,22 +3,21 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <!-- 所有页面都引用同一个CSS文件 -->
     <link rel="stylesheet" href="../css/styles_ic.css">
-    <title>Website - Ariel's Portfolio</title>
+    <title>Video Game - Ariel's Portfolio</title>
 </head>
 <body>
-    <!-- 背景视频 (所有页面共用) -->
+    <!-- 背景视频 -->
     <video id="bg-video" autoplay muted loop playsinline>
         <source src="../images/IMG_4205.MOV">
     </video>
 
-    <!-- Hero Section (所有页面共用) -->
+    <!-- Hero Section -->
     <section class="hero">
         <div class="hero-text">Ariel's Brunside<br>Digital Tech Adventure</div>
     </section>
 
-    <!-- 飘落的叶子 (所有页面共用) -->
+    <!-- 飘落的叶子 -->
     <div class="leaves">
         <span></span>
         <span></span>
@@ -27,83 +26,83 @@
         <span></span>
     </div>
 
-    <!-- 背景音乐 (所有页面共用) -->
+    <!-- 背景音乐 -->
     <audio id="bgm" loop>
         <source src="../images/说谎马卡龙.m4a" type="audio/mpeg">
     </audio>
     <button id="music-btn">▶ Play Music</button>
 
-    <!-- 导航栏 (所有页面共用，注意修改active按钮) -->
-     <section class="topic">
+    <!-- 导航栏 -->
+    <section class="topic">
         <div class="topic-title">
             <div class="tab-nav">
                 <button class="tab-btn" onclick="location.href='../index.html'">Home</button>
                 <button class="tab-btn" onclick="location.href='image-creation.html'">Image Creation</button>
-                <button class="tab-btn active" onclick="location.href='website.html'">Website</button>
+                <button class="tab-btn" onclick="location.href='website.html'">Website</button>
                 <button class="tab-btn" onclick="location.href='computer-science.html'">Computer Science</button>
                 <button class="tab-btn" onclick="location.href='programming.html'">Programming</button>
                 <button class="tab-btn" onclick="location.href='3d-modelling.html'">3D Modelling/Animation</button>
                 <button class="tab-btn" onclick="location.href='audio-visual.html'">D4M/Audio Visual</button>
-                <button class="tab-btn" onclick="location.href='video-game.html'">Video Game</button>
+                <button class="tab-btn active" onclick="location.href='video-game.html'">Video Game</button>
             </div>
         </div>
 
 
-        <!-- ===== 页面专属内容 ===== -->
-        <!-- 从这里开始每个页面写不同的内容，但类名可以沿用或新建 -->
-        <div class="website-container">  <!-- 可以沿用这个类名，或者改成对应页面的类名 -->
-            
-            <!-- 头部区域 (修改标题和副标题) -->
+
+        <!-- 使用CSS中定义的类名 -->
+        <div class="video-game-container">
+            <!-- 头部区域 -->
             <div class="ic-header">
-                <h1 class="ic-title">Website</h1>  <!-- 修改标题 -->
-                <p class="ic-subtitle">My Website Design Projects</p>  <!-- 修改副标题 -->
+                <h1 class="ic-title">Video Game</h1>
+                <p class="ic-subtitle">My Video Game Works Showcase</p>
             </div>
 
-            <!-- 分类标签 (可以修改成对应页面的分类) -->
+            <!-- 分类标签 -->
             <div class="ic-categories">
                 <span class="category active">All Works</span>
-                <span class="category">HTML/CSS</span>
-                <span class="category">JavaScript</span>
-                <span class="category">Responsive</span>
-                <span class="category">Interactive</span>
+                <span class="category">Pixel Art</span>
+                <span class="category">GIMP</span>
+                <span class="category">Inkscape</span>
+                <span class="category">Character Cretaion</span>
             </div>
 
-            <!-- 作品画廊 (放这个页面独有的作品) -->
+            <!-- 作品画廊 - 使用 ic-gallery 和 art-card -->
             <div class="ic-gallery">
                 <!-- 作品卡片 1 -->
                 <div class="art-card">
                     <div class="art-image">
-                        <img src="../images/your-website-image1.PNG" alt="Website Project 1">
+                        <img src="../images/Green Screen Adventure Created in Gimp_Ariel Yang copy.PNG" alt="Green Screen Adventure Created in Gimp">
                     </div>
                     <div class="art-info">
-                        <h3>Personal Portfolio</h3>
-                        <p class="art-date">01/03/2026</p>
-                        <p class="art-description">My first website with Visual Studio Code</p>
+                        <h3>Green Screen Adventure Created in Gimp</h3>
+                        <p class="art-date">20/02/2026</p>
+                        <p class="art-description">My first assignment of 2026 year 10.</p>
                         <div class="art-tags">
-                            <span>HTML</span>
-                            <span>CSS</span>
-                            <span>Portfolio</span>
+                            <span>JOJO</span>
+                            <span>Gimp</span>
+                            <span>GreenScreen</span>
                         </div>
                     </div>
                 </div>
 
-                <!-- 作品卡片 2 - 复制上面的卡片修改 -->
+                <!-- 作品卡片 2 -->
                 <div class="art-card">
                     <div class="art-image">
-                        <img src="../images/your-website-image2.PNG" alt="Website Project 2">
+                        <img src="../images/Inkscape Character Ling Song_ariel yang copy.PNG" alt="Inkscape Character">
                     </div>
                     <div class="art-info">
-                        <h3>Interactive Quiz</h3>
-                        <p class="art-date">15/03/2026</p>
-                        <p class="art-description">A quiz game with JavaScript.</p>
+                        <h3>Inkscape Character</h3>
+                        <p class="art-date">20/02/2026</p>
+                        <p class="art-description">My oc Ling Song created by Inkscape.</p>
                         <div class="art-tags">
-                            <span>JavaScript</span>
-                            <span>Interactive</span>
+                            <span>Inkscape</span>
+                            <span>CharacterCreation</span>
+                            <span>DigitalDrawing</span>
                         </div>
                     </div>
                 </div>
 
-                <!-- 占位卡片 (每个页面都可以保留) -->
+                <!-- 占位卡片 -->
                 <div class="art-card placeholder">
                     <div class="art-image">
                         <div class="placeholder-icon">🖼️</div>
@@ -119,37 +118,36 @@
                 </div>
             </div>
 
-            <!-- 工具区 (修改成对应页面的工具) -->
+            <!-- 创作工具区 -->
             <div class="ic-tools">
-                <h2>My Website Tools</h2>
+                <h2>My creation tools</h2>
                 <div class="tools-grid">
                     <div class="tool-item">
-                        <span class="tool-icon">🌐</span>
-                        <span>HTML5</span>
+                        <span class="tool-icon">✏️</span>
+                        <span>GIMP</span>
+                    </div>
+                    <div class="tool-item">
+                        <span class="tool-icon">🖌️</span>
+                        <span>Inkscape</span>
                     </div>
                     <div class="tool-item">
                         <span class="tool-icon">🎨</span>
-                        <span>CSS3</span>
+                        <span>Illustrator</span>
                     </div>
                     <div class="tool-item">
-                        <span class="tool-icon">⚡</span>
-                        <span>JavaScript</span>
-                    </div>
-                    <div class="tool-item">
-                        <span class="tool-icon">⚛️</span>
-                        <span>React</span>
+                        <span class="tool-icon">✨</span>
+                        <span>Clip Studio</span>
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- 页脚 (所有页面共用) -->
+    <!-- 页脚 -->
     <footer class="footer">
         <p>&copy; 2026 My Showcase Website By Ariel Yang</p>
     </footer>
 
-    <!-- 音乐控制脚本 (所有页面共用) -->
     <script>
     const bgm = document.getElementById("bgm");
     const musicBtn = document.getElementById("music-btn");
