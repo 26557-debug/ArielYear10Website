@@ -31,7 +31,7 @@
 #music-btn {
  position: fixed;
     bottom: 20px;
-    right: 20px;
+    left: 20px;
     padding: 12px 24px;
     background: rgba(255, 255, 255, 0.2);
     backdrop-filter: blur(10px);
