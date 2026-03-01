@@ -96,16 +96,6 @@ document.addEventListener("DOMContentLoaded", () => {
   </audio>
   <button id="music-btn">▶ Play Music</button>
 
-  <script>
-// 音乐按钮
-const bgm = document.getElementById("bgm");
-const btn = document.getElementById("music-btn");
-btn.onclick = () => {
-  if(bgm.paused){ bgm.play(); btn.textContent="⏸ Stop Music"; }
-  else { bgm.pause(); btn.textContent="▶ Play Music"; }
-}
-</script>
-
    <!-- 导航栏 (所有页面共用，注意修改active按钮) -->
      <section class="topic">
         <div class="topic-title">
@@ -141,23 +131,23 @@ btn.onclick = () => {
             <!-- 作品画廊 -->
 <div class="ic-gallery">
     <!-- 作品卡片 1 -->
-    <div class="art-card">
-        <div class="art-image">
-            <img src="images/视奸.png" alt="who-am-I.html">
-        </div>
-        <div class="art-info">
-            <h3>Who am I?</h3>
-            <p class="art-date">?/?/2026</p>
-            <p class="art-description">Let's start to get to know me!!</p>
-            <div class="art-tags">
-                <span>Self-introduction</span>
-            </div>
+    <div class="art-card" onclick="location.href='html/who-am-i.html';" style="cursor: pointer;">
+    <div class="art-image">
+        <img src="images/视奸.png" alt="who-am-I.html">
+    </div>
+    <div class="art-info">
+        <h3>Who am I?</h3>
+        <p class="art-date">?/?/2026</p>
+        <p class="art-description">Let's start to get to know me!!</p>
+        <div class="art-tags">
+            <span>Self-introduction</span>
         </div>
     </div>
+</div>
 
     <!-- 作品卡片 2 -->
-    <div class="art-card">
-        <div class="art-image">
+   <div class="art-card" onclick="location.href='html/my-hobbies.html';" style="cursor: pointer;">
+    <div class="art-image">
             <img src="images/视奸.png" alt="my-hobbies.html">
         </div>
         <div class="art-info">
@@ -171,8 +161,8 @@ btn.onclick = () => {
     </div>
 
     <!-- 作品卡片 3 -->
-    <div class="art-card">
-        <div class="art-image">
+   <div class="art-card" onclick="location.href='html/my- masterpieces.html';" style="cursor: pointer;">
+    <div class="art-image">
             <img src="images/视奸.png" alt="my-masterpiece.html">
         </div>
         <div class="art-info">
@@ -299,6 +289,7 @@ function copyEmail() {
     alert("Email: 26557@burnside.school.nz");
 }</script>
 
+<script src="js/music-player.js"></script>
 
 </body>
 </html>

@@ -154,11 +154,7 @@
         <p>&copy; 2026 My Showcase Website By Ariel Yang</p>
     </footer>
     
-    <!-- 音乐控制脚本 (所有页面共用) -->
     <script>
-    const bgm = document.getElementById("bgm");
-    const musicBtn = document.getElementById("music-btn");
-
 // ===== 幕布视频控制 =====
     const curtainVideo = document.getElementById('curtain-video');
     
@@ -189,15 +185,9 @@
         }
     });
 
-    musicBtn.onclick = () => {
-        if (bgm.paused) {
-            bgm.play();
-            musicBtn.textContent = "⏸ Stop Music";
-        } else {
-            bgm.pause();
-            musicBtn.textContent = "▶ Play Music";
-        }
-    };
     </script>
+
+<script src="../js/music-player.js"></script>
+
 </body>
 </html>

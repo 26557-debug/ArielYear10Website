@@ -324,6 +324,7 @@ background: rgba(30, 30, 30, 0.8);
     margin-bottom: 40px;
 }
 
+
 .tab-nav {
     display: flex;
     justify-content: center;
@@ -450,12 +451,18 @@ background: rgba(30, 30, 30, 0.8);
     border: 1px solid rgba(255, 255, 255, 0.1);
     transition: all 0.4s;
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+    cursor: pointer;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
 .art-card:hover {
     transform: translateY(-10px);
     border-color: rgba(255, 215, 0, 0.3);
     box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
+     transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+    text-decoration: underline;
+    text-decoration-color: #ffd966;
 }
 
 .art-image {

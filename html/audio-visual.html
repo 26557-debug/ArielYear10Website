@@ -155,8 +155,6 @@
     </footer>
 
     <script>
-    const bgm = document.getElementById("bgm");
-    const musicBtn = document.getElementById("music-btn");
 
 // ===== 幕布视频控制 =====
     const curtainVideo = document.getElementById('curtain-video');
@@ -188,15 +186,8 @@
         }
     });
 
-    musicBtn.onclick = () => {
-        if (bgm.paused) {
-            bgm.play();
-            musicBtn.textContent = "⏸ Stop Music";
-        } else {
-            bgm.pause();
-            musicBtn.textContent = "▶ Play Music";
-        }
-    };
+   
     </script>
+    <script src="../js/music-player.js"></script>
 </body>
 </html>

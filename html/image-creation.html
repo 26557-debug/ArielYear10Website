@@ -186,16 +186,9 @@
             scrollToContent();
         }
     });
-
-    musicBtn.onclick = () => {
-        if (bgm.paused) {
-            bgm.play();
-            musicBtn.textContent = "⏸ Stop Music";
-        } else {
-            bgm.pause();
-            musicBtn.textContent = "▶ Play Music";
-        }
-    };
     </script>
+
+<script src="../js/music-player.js"></script>
+
 </body>
 </html>
