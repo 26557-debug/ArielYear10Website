@@ -21,30 +21,32 @@
   cursor: pointer;
 }
 
+/* ===== 飘落的叶子特效 ===== */
 .leaves {
-  position: fixed;
-  inset: 0;
-  pointer-events: none; /* no clocking clicks */
-  overflow: hidden;
+    position: fixed;
+    inset: 0;
+    pointer-events: none;
+    overflow: hidden;
+    z-index: 1;
 }
 
 .leaves span {
-  position: absolute;
-  width: 20px;
-  height: 20px;
-  background: red;
-  border-radius: 60% 40% 60% 40%;
+    position: absolute;
+    width: 25px;
+    height: 25px;
+    background: linear-gradient(135deg, #ff6b6b, #ff8e8e);
+    border-radius: 60% 40% 60% 40%;
     transform: rotate(45deg);
-  opacity: 0.7;
-  animation: float 10s linear infinite;
+    opacity: 0.5;
+    animation: float 10s linear infinite;
+    box-shadow: 0 0 10px rgba(255, 107, 107, 0.3);
 }
 
-/* random location + different speeds */
-.leaves span:nth-child(1) { left: 10%; animation-duration: 8s; }
-.leaves span:nth-child(2) { left: 30%; animation-duration: 12s; }
-.leaves span:nth-child(3) { left: 50%; animation-duration: 9s; }
-.leaves span:nth-child(4) { left: 70%; animation-duration: 11s; }
-.leaves span:nth-child(5) { left: 90%; animation-duration: 7s; }
+.leaves span:nth-child(1) { left: 5%; animation-duration: 8s; background: #ff9f9f; }
+.leaves span:nth-child(2) { left: 25%; animation-duration: 12s; background: #ff8585; }
+.leaves span:nth-child(3) { left: 45%; animation-duration: 9s; background: #ffb6b6; }
+.leaves span:nth-child(4) { left: 65%; animation-duration: 11s; background: #ff9f9f; }
+.leaves span:nth-child(5) { left: 85%; animation-duration: 7s; background: #ff8585; }
 
 @keyframes float {
   from {
