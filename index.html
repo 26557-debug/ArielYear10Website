@@ -15,6 +15,24 @@
   </video>
 </div>
 
+<!-- ===== Copyright Popup===== -->
+<div id="copyright-popup" class="copyright-popup" style="display: none;">
+    <div class="popup-content">
+        <span class="close-btn" onclick="closeCopyrightPopup()">&times;</span>
+        <h2 class="popup-title">📢【Apology Statement】</h2>
+        <div class="popup-text">
+            <p>Educational project only<br><span class="highlight">(Year 10 Digital Tech assignment)</span></p>
+            <p>Music rights belong to the original creators.</p>
+            <p>If there are any copyright concerns,<br>please contact me at:<br>
+            <span class="email" onclick="copyEmail()">26557@burnside.school.nz</span></p>
+            <p>and the content will be removed immediately.</p>
+        </div>
+        <div class="popup-footer">
+            <div class="confirm-btn" onclick="closeCopyrightPopup()">OK ✅</div>
+        </div>
+    </div>
+</div>
+
 <script>
 document.addEventListener("DOMContentLoaded", () => {
   const intro = document.getElementById("intro");
@@ -52,12 +70,19 @@ document.addEventListener("DOMContentLoaded", () => {
 
   <!-- 背景视频 -->
   <video id="bg-video" autoplay muted loop playsinline>
-    <source src="images/IMG_4205.MOV" type="video/mp4">
+    <source src="images/背景视频.mp4" type="video/mp4">
   </video>
 
-  <!-- Hero -->
-  <section class="hero">
-  <div class="hero-text">Ariel's Brunside<br>Digital Tech Adventure</div>
+  <!-- Hero Section -->
+<section class="video-hero" id="videoHero">
+    <video id="curtain-video" autoplay muted playsinline>
+        <!-- 注意：这里使用和开场视频一样的路径格式 -->
+        <source src="images/开幕video.MOV" type="video/mp4">
+    </video>
+    <!-- 幕布遮罩层（实现从上往下渐变） -->
+    <div class="curtain-overlay"></div>
+    <!-- 向下滚动提示箭头 -->
+    <div class="scroll-hint" onclick="scrollToContent()">↓</div>
 </section>
 
   <!-- 飘落的叶子 -->
@@ -113,60 +138,58 @@ btn.onclick = () => {
               
             </div>
 
-            <!-- 作品画廊 (放这个页面独有的作品) -->
-            <div class="ic-gallery">
-                <!-- 作品卡片 1 -->
-                <div class="art-card">
-                    <div class="art-image">
-                        <img src="images/视奸.png" alt="html/who-am-I.html">
-                    </div>
-                    <div class="art-info">
-                        <h3>Who am I?</h3>
-                        <p class="art-date">?/?/2026</p>
-                        <p class="art-description">Let's start to get to know me!!</p>
-                        <div class="art-tags">
-                            <span>Self-introduction</span>
-                            
-                        </div>
-                    </div>
-                </div>
-
-                <!-- 作品卡片 2 - 复制上面的卡片修改 -->
-                <div class="art-card">
-                    <div class="art-image">
-                        <img src="images/视奸.png" alt="html/who-am-I.html">
-                    </div>
-                    <div class="art-info">
-                        <h3>My Hobbies</h3>
-                        <p class="art-date">？/？/2026</p>
-                        <p class="art-description">Let's see what I like to do.</p>
-                        <div class="art-tags">
-                            <span>hobbies</span>
-                        </div>
-                    </div>
-                </div>
+            <!-- 作品画廊 -->
+<div class="ic-gallery">
+    <!-- 作品卡片 1 -->
+    <div class="art-card">
+        <div class="art-image">
+            <img src="images/视奸.png" alt="who-am-I.html">
+        </div>
+        <div class="art-info">
+            <h3>Who am I?</h3>
+            <p class="art-date">?/?/2026</p>
+            <p class="art-description">Let's start to get to know me!!</p>
+            <div class="art-tags">
+                <span>Self-introduction</span>
             </div>
+        </div>
+    </div>
 
-               <!-- 作品卡片 3- 复制上面的卡片修改 -->
-                <div class="art-card">
-                    <div class="art-image">
-                        <img src="images/视奸.png" alt="html/who-am-I.html">
-                    </div>
-                    <div class="art-info">
-                        <h3>My Masterpiece</h3>
-                        <p class="art-date">？/？/2026</p>
-                        <p class="art-description">Let's see my works that I'm very proud at it...</p>
-                        <div class="art-tags">
-                            <span>power points</span>
-                            <span>posters</span>
-                            <span>drawings/paintings</span>
-                            <span>photographs</span>
-                            <span>Baking works</span>
-                            <span>cosplay</span>
-                        </div>
-                    </div>
-                </div>
+    <!-- 作品卡片 2 -->
+    <div class="art-card">
+        <div class="art-image">
+            <img src="images/视奸.png" alt="my-hobbies.html">
+        </div>
+        <div class="art-info">
+            <h3>My Hobbies</h3>
+            <p class="art-date">？/？/2026</p>
+            <p class="art-description">Let's see what I like to do.</p>
+            <div class="art-tags">
+                <span>hobbies</span>
             </div>
+        </div>
+    </div>
+
+    <!-- 作品卡片 3 -->
+    <div class="art-card">
+        <div class="art-image">
+            <img src="images/视奸.png" alt="my-masterpiece.html">
+        </div>
+        <div class="art-info">
+            <h3>My Masterpiece</h3>
+            <p class="art-date">？/？/2026</p>
+            <p class="art-description">Let's see my works that I'm very proud at it...</p>
+            <div class="art-tags">
+                <span>power points</span>
+                <span>posters</span>
+                <span>drawings/paintings</span>
+                <span>photographs</span>
+                <span>Baking works</span>
+                <span>cosplay</span>
+            </div>
+        </div>
+    </div>
+</div> <!-- ic-gallery 正确关闭 -->
 
             <!-- 工具区 (修改成对应页面的工具) -->
             <div class="ic-tools">
@@ -198,6 +221,84 @@ btn.onclick = () => {
 <footer class="footer">
   <p>&copy; 2026 My Showcase Website By Ariel Yang</p>
 </footer>
+
+<script>
+    // ===== 幕布视频控制 =====
+    const curtainVideo = document.getElementById('curtain-video');
+    
+    // 确保视频播放并停在最后一帧
+    curtainVideo.addEventListener('ended', function() {
+        // 视频结束后，移除muted属性（如果需要声音最后一帧）
+        // curtainVideo.muted = false; // 如果需要声音取消注释
+    });
+
+    // 向下滚动到内容区域的函数
+    function scrollToContent() {
+        const topicSection = document.querySelector('.topic');
+        topicSection.scrollIntoView({ behavior: 'smooth' });
+    }
+
+    // 可选：按任意键或点击屏幕也可以向下滚动
+    document.addEventListener('keydown', function(event) {
+        if (event.key === 'ArrowDown' || event.code === 'Space') {
+            event.preventDefault();
+            scrollToContent();
+        }
+    });
+
+    document.addEventListener('click', function() {
+        // 如果视频还没结束，点击屏幕就向下滚动
+        if (!curtainVideo.ended) {
+            scrollToContent();
+        }
+    });
+
+    // ===== 版权弹窗控制 - 超级保险版本 =====
+const introVideo = document.getElementById("intro-video");
+const copyrightPopup = document.getElementById("copyright-popup");
+
+// 显示弹窗函数
+function showPopup() {
+    copyrightPopup.style.display = "flex";
+    console.log("弹窗显示了！");
+}
+
+// 1. 监听视频结束
+introVideo.addEventListener("ended", function() {
+    console.log("视频正常结束");
+    showPopup();
+});
+
+// 2. 检查视频是否已经结束
+if (introVideo.ended) {
+    console.log("视频已经结束");
+    showPopup();
+}
+
+// 3. 监听主内容显示（当视频被跳过时）
+const mainContent = document.getElementById("main-content");
+const observer = new MutationObserver(function() {
+    if (mainContent.style.display === "block") {
+        console.log("主内容显示，可能是跳过了视频");
+        // 给主内容一点加载时间
+        setTimeout(showPopup, 500);
+    }
+});
+
+if (mainContent) {
+    observer.observe(mainContent, { attributes: true });
+}
+
+// 关闭弹窗函数
+function closeCopyrightPopup() {
+    copyrightPopup.style.display = "none";
+}
+
+// 复制邮箱功能
+function copyEmail() {
+    alert("Email: 26557@burnside.school.nz");
+}</script>
+
 
 </body>
 </html>

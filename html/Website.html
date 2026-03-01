@@ -10,13 +10,18 @@
 <body>
     <!-- 背景视频 (所有页面共用) -->
     <video id="bg-video" autoplay muted loop playsinline>
-        <source src="../images/IMG_4205.MOV">
+        <source src="../images/背景视频.mp4">
     </video>
 
-    <!-- Hero Section (所有页面共用) -->
-    <section class="hero">
-        <div class="hero-text">Ariel's Brunside<br>Digital Tech Adventure</div>
-    </section>
+     <!-- Hero Section -->
+     <section class="video-hero" id="videoHero">
+    <video id="curtain-video" autoplay muted playsinline>
+        <source src="../images/开幕video.MOV" type="video/mp4">
+        <!-- 请把your-curtain-video.mp4替换成你的视频文件名 -->
+    </video>
+    <!-- 向下滚动提示箭头 -->
+    <div class="scroll-hint" onclick="scrollToContent()">↓</div>
+</section>
 
     <!-- 飘落的叶子 (所有页面共用) -->
     <div class="leaves">
@@ -51,7 +56,7 @@
 
         <!-- ===== 页面专属内容 ===== -->
         <!-- 从这里开始每个页面写不同的内容，但类名可以沿用或新建 -->
-        <div class="website-container">  <!-- 可以沿用这个类名，或者改成对应页面的类名 -->
+        <div class="image-creation-container">  <!-- 可以沿用这个类名，或者改成对应页面的类名 -->
             
             <!-- 头部区域 (修改标题和副标题) -->
             <div class="ic-header">
@@ -73,7 +78,7 @@
                 <!-- 作品卡片 1 -->
                 <div class="art-card">
                     <div class="art-image">
-                        <img src="../images/your-website-image1.PNG" alt="Website Project 1">
+                        <img src="../images/Green Screen Adventure Created in Gimp_Ariel Yang copy.PNG" alt="Website Project 1">
                     </div>
                     <div class="art-info">
                         <h3>Personal Portfolio</h3>
@@ -148,11 +153,41 @@
     <footer class="footer">
         <p>&copy; 2026 My Showcase Website By Ariel Yang</p>
     </footer>
-
+    
     <!-- 音乐控制脚本 (所有页面共用) -->
     <script>
     const bgm = document.getElementById("bgm");
     const musicBtn = document.getElementById("music-btn");
+
+// ===== 幕布视频控制 =====
+    const curtainVideo = document.getElementById('curtain-video');
+    
+    // 确保视频播放并停在最后一帧
+    curtainVideo.addEventListener('ended', function() {
+        // 视频结束后，移除muted属性（如果需要声音最后一帧）
+        // curtainVideo.muted = false; // 如果需要声音取消注释
+    });
+
+    // 向下滚动到内容区域的函数
+    function scrollToContent() {
+        const topicSection = document.querySelector('.topic');
+        topicSection.scrollIntoView({ behavior: 'smooth' });
+    }
+
+    // 可选：按任意键或点击屏幕也可以向下滚动
+    document.addEventListener('keydown', function(event) {
+        if (event.key === 'ArrowDown' || event.code === 'Space') {
+            event.preventDefault();
+            scrollToContent();
+        }
+    });
+
+    document.addEventListener('click', function() {
+        // 如果视频还没结束，点击屏幕就向下滚动
+        if (!curtainVideo.ended) {
+            scrollToContent();
+        }
+    });
 
     musicBtn.onclick = () => {
         if (bgm.paused) {

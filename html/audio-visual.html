@@ -9,13 +9,19 @@
 <body>
     <!-- 背景视频 -->
     <video id="bg-video" autoplay muted loop playsinline>
-        <source src="../images/IMG_4205.MOV">
+        <source src="../images/背景视频.mp4">
     </video>
 
     <!-- Hero Section -->
-    <section class="hero">
-        <div class="hero-text">Ariel's Brunside<br>Digital Tech Adventure</div>
-    </section>
+     <!-- Hero Section -->
+     <section class="video-hero" id="videoHero">
+    <video id="curtain-video" autoplay muted playsinline>
+        <source src="../images/开幕video.MOV" type="video/mp4">
+        <!-- 请把your-curtain-video.mp4替换成你的视频文件名 -->
+    </video>
+    <!-- 向下滚动提示箭头 -->
+    <div class="scroll-hint" onclick="scrollToContent()">↓</div>
+</section>
 
     <!-- 飘落的叶子 -->
     <div class="leaves">
@@ -50,7 +56,7 @@
 
 
         <!-- 使用CSS中定义的类名 -->
-        <div class="audio-visual-container">
+        <div class="image-creation-container">
             <!-- 头部区域 -->
             <div class="ic-header">
                 <h1 class="ic-title">Audio Visual</h1>
@@ -151,6 +157,36 @@
     <script>
     const bgm = document.getElementById("bgm");
     const musicBtn = document.getElementById("music-btn");
+
+// ===== 幕布视频控制 =====
+    const curtainVideo = document.getElementById('curtain-video');
+    
+    // 确保视频播放并停在最后一帧
+    curtainVideo.addEventListener('ended', function() {
+        // 视频结束后，移除muted属性（如果需要声音最后一帧）
+        // curtainVideo.muted = false; // 如果需要声音取消注释
+    });
+
+    // 向下滚动到内容区域的函数
+    function scrollToContent() {
+        const topicSection = document.querySelector('.topic');
+        topicSection.scrollIntoView({ behavior: 'smooth' });
+    }
+
+    // 可选：按任意键或点击屏幕也可以向下滚动
+    document.addEventListener('keydown', function(event) {
+        if (event.key === 'ArrowDown' || event.code === 'Space') {
+            event.preventDefault();
+            scrollToContent();
+        }
+    });
+
+    document.addEventListener('click', function() {
+        // 如果视频还没结束，点击屏幕就向下滚动
+        if (!curtainVideo.ended) {
+            scrollToContent();
+        }
+    });
 
     musicBtn.onclick = () => {
         if (bgm.paused) {
