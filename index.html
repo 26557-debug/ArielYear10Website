@@ -1,113 +1,91 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="style.css">
-    <title>Ciallo～(∠・ω< )⌒☆!</title>
-
-
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="style.css">
+  <title>Ciallo～(∠・ω< )⌒☆!</title>
 </head>
-<!-- This is the main body of the website- ALL your content goes AFTER the <body> tag and before the </body> tag -->
 <body>
-    <!--开场视频-->
+
+<!-- 开场视频 -->
 <div id="intro">
-  <video id="intro-video" autoplay muted>
-    <source src="images/intro-video.MOV">
+  <video id="intro-video" autoplay muted tabindex="0">
+    <source src="images/intro-video.MOV" type="video/mp4">
   </video>
 </div>
-<div id="main-content">
 
 <script>
-const intro = document.getElementById("intro");
-const mainContent = document.getElementById("main-content");
-const video = document.getElementById("intro-video");
+document.addEventListener("DOMContentLoaded", () => {
+  const intro = document.getElementById("intro");
+  const mainContent = document.getElementById("main-content");
+  const video = document.getElementById("intro-video");
 
-// 如果已经播放过
-if (sessionStorage.getItem("introPlayed")) {
+  if (sessionStorage.getItem("introPlayed")) {
     intro.style.display = "none";
     mainContent.style.display = "block";
-} else {
-
+  } else {
     mainContent.style.display = "none";
 
-    // 视频播放完
     video.addEventListener("ended", skipIntro);
 
-    // 点击开启声音
     document.addEventListener("click", () => {
-        video.muted = false;
-        video.play();
+      video.muted = false;
+      video.play();
     }, { once: true });
 
-    // ⭐ 按 Enter 跳过
+    // ⭐ Enter 跳过
     document.addEventListener("keydown", (event) => {
-        if (event.key === "Enter") {
-            skipIntro();
-        }
+      if(event.key === "Enter" || event.code === "Enter") skipIntro();
     });
-}
+  }
 
-// ⭐ 统一跳过函数（专业写法）
-function skipIntro() {
+  function skipIntro() {
     video.pause();
     intro.style.display = "none";
     mainContent.style.display = "block";
     sessionStorage.setItem("introPlayed", "true");
-}
+  }
+});
 </script>
+<div id="main-content">
 
-<video id="bg-video" autoplay muted loop playsinline>
-  <source src="images/IMG_4205.MOV">
-</video>
-    <!-- The Hero Section -------------------------------------------------------------------------------------- -->
-    <section class="hero">
-        <div class="hero-text">Ariel's Brunside<br>Digital Tech Adventure</div>
+  <!-- 背景视频 -->
+  <video id="bg-video" autoplay muted loop playsinline>
+    <source src="images/IMG_4205.MOV" type="video/mp4">
+  </video>
 
-    </section>
+  <!-- Hero -->
+  <section class="hero">
+  <div class="hero-text">Ariel's Brunside<br>Digital Tech Adventure</div>
+</section>
 
-<div class="leaves">
-  <span></span>
-  <span></span>
-  <span></span>
-  <span></span>
-  <span></span>
-</div>
+  <!-- 飘落的叶子 -->
+  <div class="leaves">
+    <span></span><span></span><span></span><span></span><span></span>
+  </div>
 
-<audio id="bgm" loop>
-  <source src="images/说谎马卡龙.m4a" type="audio/mpeg">
-</audio>
+  <!-- 背景音乐 -->
+  <audio id="bgm" loop>
+    <source src="images/说谎马卡龙.m4a" type="audio/mpeg">
+  </audio>
+  <button id="music-btn">▶ Play Music</button>
 
-<button id="music-btn">▶ Play Music</button>
-
-<script>
+  <script>
+// 音乐按钮
 const bgm = document.getElementById("bgm");
 const btn = document.getElementById("music-btn");
-
 btn.onclick = () => {
-  if (bgm.paused) {
-    bgm.play();
-    btn.textContent = "⏸ Stop Music";
-  } else {
-    bgm.pause();
-    btn.textContent = "▶ Play Music";
-  }
-};
-</script>
-
-<script>
-function playMusic() {
-  document.getElementById("bgm").play();
+  if(bgm.paused){ bgm.play(); btn.textContent="⏸ Stop Music"; }
+  else { bgm.pause(); btn.textContent="▶ Play Music"; }
 }
 </script>
 
-<!-- Topic one ------------------------------------------------------------------------------------------------- -->
-    <!-- The First Topic Section -->
-    <section class="topic">
+   <!-- 导航栏 (所有页面共用，注意修改active按钮) -->
+     <section class="topic">
         <div class="topic-title">
             <div class="tab-nav">
-                <button class="tab-btn" onclick="location.href='index.html'">Home</button>
+                <button class="tab-btn active" onclick="location.href='../index.html'">Home</button>
                 <button class="tab-btn" onclick="location.href='html/image-creation.html'">Image Creation</button>
                 <button class="tab-btn" onclick="location.href='html/website.html'">Website</button>
                 <button class="tab-btn" onclick="location.href='html/computer-science.html'">Computer Science</button>
@@ -119,59 +97,107 @@ function playMusic() {
         </div>
 
 
+        <!-- ===== 页面专属内容 ===== -->
+        <!-- 从这里开始每个页面写不同的内容，但类名可以沿用或新建 -->
+        <div class="index-container">  <!-- 可以沿用这个类名，或者改成对应页面的类名 -->
+            
+            <!-- 头部区域 (修改标题和副标题) -->
+            <div class="ic-header">
+                <h1 class="ic-title">Home Page</h1>  <!-- 修改标题 -->
+                <p class="ic-subtitle">Welcome to my Website!!</p>  <!-- 修改副标题 -->
+            </div>
 
-        <div class="topic-content">
-            <div class="topic-card" onclick="location.href='html/introduction.html'">
-                <img src="images/视奸.png" alt="Introduction">
-                <h2 class="topic-card-text">Introduction</h2>
+            <!-- 分类标签 (可以修改成对应页面的分类) -->
+            <div class="ic-categories">
+                <span class="category active">おれは人间をやめるぞ！ ジョジョ──ッ！！</span>
+              
             </div>
-            <div class="topic-card" onclick="location.href='html/who am I.html'">
-                <img src="images/视奸.png" alt="Who am I?">
-                <h2 class="topic-card-text">Who am I?</h2>
+
+            <!-- 作品画廊 (放这个页面独有的作品) -->
+            <div class="ic-gallery">
+                <!-- 作品卡片 1 -->
+                <div class="art-card">
+                    <div class="art-image">
+                        <img src="images/视奸.png" alt="html/who-am-I.html">
+                    </div>
+                    <div class="art-info">
+                        <h3>Who am I?</h3>
+                        <p class="art-date">?/?/2026</p>
+                        <p class="art-description">Let's start to get to know me!!</p>
+                        <div class="art-tags">
+                            <span>Self-introduction</span>
+                            
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 作品卡片 2 - 复制上面的卡片修改 -->
+                <div class="art-card">
+                    <div class="art-image">
+                        <img src="images/视奸.png" alt="html/who-am-I.html">
+                    </div>
+                    <div class="art-info">
+                        <h3>My Hobbies</h3>
+                        <p class="art-date">？/？/2026</p>
+                        <p class="art-description">Let's see what I like to do.</p>
+                        <div class="art-tags">
+                            <span>hobbies</span>
+                        </div>
+                    </div>
+                </div>
             </div>
-            <div class="topic-card" onclick="location.href='programming.html'">
-                <img src="images/placeholder-1024x1024.png" alt="My hobbies">
-                <h2 class="topic-card-text">My hobbies</h2>
+
+               <!-- 作品卡片 3 - 复制上面的卡片修改 -->
+                <div class="art-card">
+                    <div class="art-image">
+                        <img src="images/视奸.png" alt="html/who-am-I.html">
+                    </div>
+                    <div class="art-info">
+                        <h3>My Masterpiece</h3>
+                        <p class="art-date">？/？/2026</p>
+                        <p class="art-description">Let's see my works that I'm very proud at it...</p>
+                        <div class="art-tags">
+                            <span>power points</span>
+                            <span>posters</span>
+                            <span>drawings/paintings</span>
+                            <span>photographs</span>
+                            <span>Baking works</span>
+                            <span>cosplay</span>
+                        </div>
+                    </div>
+                </div>
             </div>
-            <div class="topic-card" onclick="location.href='video-game.html'">
-                <img src="images/placeholder-1024x1024.png" alt="My masterpeice">
-                <h2 class="topic-card-text">My masterpeice</h2>
+
+            <!-- 工具区 (修改成对应页面的工具) -->
+            <div class="ic-tools">
+                <h2>My Website Tools</h2>
+                <div class="tools-grid">
+                    <div class="tool-item">
+                        <span class="tool-icon">🌐</span>
+                        <span>HTML5</span>
+                    </div>
+                    <div class="tool-item">
+                        <span class="tool-icon">🎨</span>
+                        <span>CSS3</span>
+                    </div>
+                    <div class="tool-item">
+                        <span class="tool-icon">⚡</span>
+                        <span>JavaScript</span>
+                    </div>
+                    <div class="tool-item">
+                        <span class="tool-icon">⚛️</span>
+                        <span>React</span>
+                    </div>
+                </div>
             </div>
         </div>
     </section>
-<!-- End of topic one------------------------------------------------------------------------------------------ -->
 
-<!-- Copy and paste the section from above to make your next section -->
+</div> <!-- main-content end -->
 
+<footer class="footer">
+  <p>&copy; 2026 My Showcase Website By Ariel Yang</p>
+</footer>
 
-
-    <!-- A Simple Website Footer ------------------------------------------------------------------------------ -->
-    <footer class="footer">
-        <p>&copy; 2026 My Showcase Website By Ariel Yang</p>
-    </footer>
-
-<script>
-const buttons = document.querySelectorAll(".tab-btn");
-const contents = document.querySelectorAll(".tab-content");
-
-buttons.forEach(button => {
-  button.addEventListener("click", () => {
-
-    /* 按钮高亮切换 */
-    buttons.forEach(btn => btn.classList.remove("active"));
-    button.classList.add("active");
-
-    /* 内容切换 */
-    const target = button.dataset.tab;
-
-    contents.forEach(content => {
-      content.style.display = content.id === target ? "block" : "none";
-    });
-
-  });
-});
-</script>
-
-<!-- The end of the whole page- no more content after this! -->
 </body>
 </html>
