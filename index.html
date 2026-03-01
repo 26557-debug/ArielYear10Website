@@ -7,36 +7,57 @@
     <link rel="stylesheet" href="style.css">
     <title>Ciallo～(∠・ω< )⌒☆!</title>
 
+
+</head>
+<!-- This is the main body of the website- ALL your content goes AFTER the <body> tag and before the </body> tag -->
+<body>
     <!--开场视频-->
 <div id="intro">
   <video id="intro-video" autoplay muted>
     <source src="images/intro-video.MOV">
   </video>
 </div>
-<div id="main-content"></div>
+<div id="main-content">
 
 <script>
+const intro = document.getElementById("intro");
+const mainContent = document.getElementById("main-content");
 const video = document.getElementById("intro-video");
 
-document.addEventListener("click", () => {
-    video.muted = false;
-    video.play();
-}, { once: true });
+// 如果已经播放过
+if (sessionStorage.getItem("introPlayed")) {
+    intro.style.display = "none";
+    mainContent.style.display = "block";
+} else {
 
-video.addEventListener("ended", () => {
-    document.getElementById("intro").style.display = "none";
-    document.getElementById("main-content").style.display = "block";});
-    
+    mainContent.style.display = "none";
+
+    // 视频播放完
+    video.addEventListener("ended", skipIntro);
+
+    // 点击开启声音
+    document.addEventListener("click", () => {
+        video.muted = false;
+        video.play();
+    }, { once: true });
+
+    // ⭐ 按 Enter 跳过
     document.addEventListener("keydown", (event) => {
-    if (event.key === "Enter") 
-        video.pause();                 // 停止视频
-        intro.style.display = "none";   // 隐藏视频层
-        main.style.display = "block"; })
+        if (event.key === "Enter") {
+            skipIntro();
+        }
+    });
+}
+
+// ⭐ 统一跳过函数（专业写法）
+function skipIntro() {
+    video.pause();
+    intro.style.display = "none";
+    mainContent.style.display = "block";
+    sessionStorage.setItem("introPlayed", "true");
+}
 </script>
 
-</head>
-<!-- This is the main body of the website- ALL your content goes AFTER the <body> tag and before the </body> tag -->
-<body>
 <video id="bg-video" autoplay muted loop playsinline>
   <source src="images/IMG_4205.MOV">
 </video>
