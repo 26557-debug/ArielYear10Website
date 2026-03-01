@@ -1,66 +1,43 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="css/image creation style.css">
-    <title>Ciallo～(∠・ω< )⌒☆!</title>
-
+    <link rel="stylesheet" href="../css/styles_ic.css">
+    <title>Image Creation - Ariel's Portfolio</title>
 </head>
-<!-- This is the main body of the website- ALL your content goes AFTER the <body> tag and before the </body> tag -->
 <body>
-<video id="bg-video" autoplay muted loop playsinline>
-  <source src="images/IMG_4205.MOV">
-</video>
-    <!-- The Hero Section -------------------------------------------------------------------------------------- -->
+    <!-- 背景视频 -->
+    <video id="bg-video" autoplay muted loop playsinline>
+        <source src="../images/IMG_4205.MOV">
+    </video>
+
+    <!-- Hero Section -->
     <section class="hero">
         <div class="hero-text">Ariel's Brunside<br>Digital Tech Adventure</div>
-
     </section>
 
-<div class="leaves">
-  <span></span>
-  <span></span>
-  <span></span>
-  <span></span>
-  <span></span>
-</div>
+    <!-- 飘落的叶子 -->
+    <div class="leaves">
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+    </div>
 
-<audio id="bgm" loop>
-  <source src="images/说谎马卡龙.m4a" type="audio/mpeg">
-</audio>
+    <!-- 背景音乐 -->
+    <audio id="bgm" loop>
+        <source src="../images/说谎马卡龙.m4a" type="audio/mpeg">
+    </audio>
+    <button id="music-btn">▶ Play Music</button>
 
-<button id="music-btn">▶ Play Music</button>
-
-<script>
-const bgm = document.getElementById("bgm");
-const btn = document.getElementById("music-btn");
-
-btn.onclick = () => {
-  if (bgm.paused) {
-    bgm.play();
-    btn.textContent = "⏸ Stop Music";
-  } else {
-    bgm.pause();
-    btn.textContent = "▶ Play Music";
-  }
-};
-</script>
-
-<script>
-function playMusic() {
-  document.getElementById("bgm").play();
-}
-</script>
-
-<!-- Topic one ------------------------------------------------------------------------------------------------- -->
-    <!-- The First Topic Section -->
+    <!-- 导航栏 -->
     <section class="topic">
         <div class="topic-title">
             <div class="tab-nav">
-                <button class="tab-btn" onclick="location.href='home index.html'">Home</button>
-                <button class="tab-btn" onclick="location.href='html/image creation.html'">Image Creation</button>
+                <button class="tab-btn" onclick="location.href='../index.html'">Home</button>
+                <button class="tab-btn active" onclick="location.href='image-creation.html'">Image Creation</button>
                 <button class="tab-btn" onclick="location.href='websites.html'">Websites</button>
                 <button class="tab-btn" onclick="location.href='computer-science.html'">Computer Science</button>
                 <button class="tab-btn" onclick="location.href='programming.html'">Programming</button>
@@ -70,60 +47,118 @@ function playMusic() {
             </div>
         </div>
 
+        <!-- 使用CSS中定义的类名 -->
+        <div class="image-creation-container">
+            <!-- 头部区域 -->
+            <div class="ic-header">
+                <h1 class="ic-title">🎨 Image Creation</h1>
+                <p class="ic-subtitle">My Image Creation Works Showcase</p>
+            </div>
 
+            <!-- 分类标签 -->
+            <div class="ic-categories">
+                <span class="category active">All Works</span>
+                <span class="category">Pixel Art</span>
+                <span class="category">GIMP</span>
+                <span class="category">Inkscape</span>
+                <span class="category">Character Cretaion</span>
+            </div>
 
-        <div class="topic-content">
-            <div class="topic-card" onclick="location.href='html/image creation.html'">
-                <img src="images/新春贺图2025-妈妈.jpg" alt="term 1">
-                <h2 class="topic-card-text">Term 1</h2>
+            <!-- 作品画廊 - 使用 ic-gallery 和 art-card -->
+            <div class="ic-gallery">
+                <!-- 作品卡片 1 -->
+                <div class="art-card">
+                    <div class="art-image">
+                        <img src="../images/Green Screen Adventure Created in Gimp_Ariel Yang copy.PNG" alt="Green Screen Adventure Created in Gimp">
+                    </div>
+                    <div class="art-info">
+                        <h3>Green Screen Adventure Created in Gimp</h3>
+                        <p class="art-date">20/02/2026</p>
+                        <p class="art-description">My first assignment of 2026 year 10.</p>
+                        <div class="art-tags">
+                            <span>JOJO</span>
+                            <span>Gimp</span>
+                            <span>GreenScreen</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 作品卡片 2 -->
+                <div class="art-card">
+                    <div class="art-image">
+                        <img src="../images/Inkscape Character Ling Song_ariel yang copy.PNG" alt="Inkscape Character">
+                    </div>
+                    <div class="art-info">
+                        <h3>Inkscape Character</h3>
+                        <p class="art-date">20/02/2026</p>
+                        <p class="art-description">My oc Ling Song created by Inkscape.</p>
+                        <div class="art-tags">
+                            <span>Inkscape</span>
+                            <span>CharacterCreation</span>
+                            <span>DigitalDrawing</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 占位卡片 -->
+                <div class="art-card placeholder">
+                    <div class="art-image">
+                        <div class="placeholder-icon">🖼️</div>
+                    </div>
+                    <div class="art-info">
+                        <h3>To Be Continue...</h3>
+                        <p class="art-date">?/?/?</p>
+                        <p class="art-description">More works might come soon.</p>
+                        <div class="art-tags">
+                            <span>Stay tuned</span>
+                        </div>
+                    </div>
+                </div>
             </div>
-            <div class="topic-card" onclick="location.href='websites.html'">
-                <img src="images/placeholder-1024x1024.png" alt="Term 2">
-                <h2 class="topic-card-text">Term 2</h2>
-            </div>
-            <div class="topic-card" onclick="location.href='programming.html'">
-                <img src="images/placeholder-1024x1024.png" alt="Term 3">
-                <h2 class="topic-card-text">Term 3</h2>
-            </div>
-            <div class="topic-card" onclick="location.href='video-game.html'">
-                <img src="images/placeholder-1024x1024.png" alt="Term 4">
-                <h2 class="topic-card-text">Term 4</h2>
+
+            <!-- 创作工具区 -->
+            <div class="ic-tools">
+                <h2>My creation tools</h2>
+                <div class="tools-grid">
+                    <div class="tool-item">
+                        <span class="tool-icon">✏️</span>
+                        <span>GIMP</span>
+                    </div>
+                    <div class="tool-item">
+                        <span class="tool-icon">🖌️</span>
+                        <span>Inkscape</span>
+                    </div>
+                    <div class="tool-item">
+                        <span class="tool-icon">🎨</span>
+                        <span>Illustrator</span>
+                    </div>
+                    <div class="tool-item">
+                        <span class="tool-icon">✨</span>
+                        <span>Clip Studio</span>
+                    </div>
+                </div>
             </div>
         </div>
     </section>
-<!-- End of topic one------------------------------------------------------------------------------------------ -->
 
-<!-- Copy and paste the section from above to make your next section -->
-
-
-
-    <!-- A Simple Website Footer ------------------------------------------------------------------------------ -->
+    <!-- 页脚 -->
     <footer class="footer">
         <p>&copy; 2026 My Showcase Website By Ariel Yang</p>
     </footer>
 
-<script>
-const buttons = document.querySelectorAll(".tab-btn");
-const contents = document.querySelectorAll(".tab-content");
+    <script>
+    const bgm = document.getElementById("bgm");
+    const musicBtn = document.getElementById("music-btn");
 
-buttons.forEach(button => {
-  button.addEventListener("click", () => {
-
-    /* 按钮高亮切换 */
-    buttons.forEach(btn => btn.classList.remove("active"));
-    button.classList.add("active");
-
-    /* 内容切换 */
-    const target = button.dataset.tab;
-
-    contents.forEach(content => {
-      content.style.display = content.id === target ? "block" : "none";
-    });
-
-  });
-});
-</script>
-
-<!-- The end of the whole page- no more content after this! -->
+    musicBtn.onclick = () => {
+        if (bgm.paused) {
+            bgm.play();
+            musicBtn.textContent = "⏸ Stop Music";
+        } else {
+            bgm.pause();
+            musicBtn.textContent = "▶ Play Music";
+        }
+    };
+    </script>
 </body>
 </html>
