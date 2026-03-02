@@ -45,12 +45,12 @@
 
 
         <!-- 分类标签 (Who am I? / My Hobbies / My Masterpiece) -->
-        <div class="who-categories">
-            <span class="category-btn active" onclick="switchWhoPage('who')">Who am I?</span>
+      <div class="who-categories">
+            <span class="category-btn" onclick="switchWhoPage('who')">Who am I?</span>
             <span class="category-btn" onclick="switchWhoPage('hobbies')">My Hobbies</span>
-            <span class="category-btn" onclick="switchWhoPage('masterpiece')">My Masterpiece</span>
+            <!-- Masterpiece 永远跳转到独立页面 -->
+            <span class="category-btn" onclick="location.href='../html/my-masterpieces.html'">My Masterpiece</span>
         </div>
-
         <!-- 动态内容区域 (用于切换 Who/ Hobbies/ Masterpiece) -->
         <div id="who-dynamic-content" class="who-dynamic-content">
             <!-- 默认显示 Who am I 内容 -->

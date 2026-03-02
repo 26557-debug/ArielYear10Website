@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Masterpiece - Gallery</title>
+    <!-- 引入主页的基础样式 -->
+    <link rel="stylesheet" href="../style.css">
+    <!-- 专门为 Masterpiece 画廊页面创建的CSS -->
+    <link rel="stylesheet" href="../css/masterpiece.css">
+</head>
+<body>
+
+    <!-- 背景视频 -->
+    <video id="bg-video" autoplay muted loop playsinline>
+        <source src="../images/背景视频.mp4" type="video/mp4">
+    </video>
+
+    <!-- 背景音乐 -->
+    <audio id="bgm" loop>
+        <source src="../images/荒诞人生_M3mo.mp3" type="audio/mpeg">
+    </audio>
+    <button id="music-btn">▶ Play Music</button>
+
+    <!-- 导航栏 -->
+    <section class="topic-title">
+        <div class="tab-nav">
+            <button class="tab-btn" onclick="location.href='../index.html'">Home</button>
+            <button class="tab-btn" onclick="location.href='image-creation.html'">Image Creation</button>
+            <button class="tab-btn" onclick="location.href='website.html'">Website</button>
+            <button class="tab-btn" onclick="location.href='computer-science.html'">Computer Science</button>
+            <button class="tab-btn" onclick="location.href='programming.html'">Programming</button>
+            <button class="tab-btn" onclick="location.href='3d-modelling.html'">3D Modelling/Animation</button>
+            <button class="tab-btn" onclick="location.href='audio-visual.html'">D4M/Audio Visual</button>
+            <button class="tab-btn" onclick="location.href='video-game.html'">Video Game</button>
+        </div>
+    </section>
+
+    <!-- 返回Homepage的箭头 -->
+    <div class="masterpiece-back" onclick="location.href='../index.html'">
+        <span class="arrow-icon">←</span> Back to Home
+    </div>
+
+    <!-- 分类标签 -->
+    <div class="masterpiece-categories">
+        <span class="masterpiece-category-btn" onclick="location.href='who-am-i.html?page=who'">Who am I?</span>
+        <span class="masterpiece-category-btn" onclick="location.href='who-am-i.html?page=hobbies'">My Hobbies</span>
+        <span class="masterpiece-category-btn active" onclick="location.href='my-masterpiece.html'">My Masterpiece</span>
+    </div>
+
+    <!-- 主内容区 - 小红书风格瀑布流 -->
+    <div class="masterpiece-container">
+        
+        <!-- 分类标题 -->
+        <div class="masterpiece-title">
+            <h2>My Masterpiece</h2>
+            <p>??/??/2026 - Let's see my works that I'm very proud of...</p>
+        </div>
+
+        <!-- 小红书风格瀑布流 - 直接点击打开图片 -->
+        <div class="rednote-waterfall">
+            
+            <!-- 作品卡片 1 - 2025春节贺图 -->
+            <div class="rednote-card" onclick="window.open('../images/2025春节贺图.JPG', '_blank')">
+                <div class="rednote-image">
+                    <img src="../images/2025春节贺图.JPG" alt="2025春节贺图">
+                </div>
+                <div class="rednote-info">
+                    <h3 class="rednote-title">2025春节贺图</h3>
+                    <p class="rednote-date">2025.02</p>
+                </div>
+            </div>
+
+            <!-- 作品卡片 2 - 2026春节贺图 -->
+            <div class="rednote-card" onclick="window.open('../images/2026年春节贺图.PNG', '_blank')">
+                <div class="rednote-image">
+                    <img src="../images/2026年春节贺图.PNG" alt="2026春节贺图">
+                </div>
+                <div class="rednote-info">
+                    <h3 class="rednote-title">2026春节贺图</h3>
+                    <p class="rednote-date">2026.02</p>
+                </div>
+            </div>
+
+            <!-- 作品卡片 3 - 视频作品（完整修复版） -->
+<div class="rednote-card" onclick="window.open('../images/悲伤是水做的.MP4', '_blank')">
+    <div class="rednote-image" style="position: relative;">
+        <!-- 使用视频标签，静音、循环、只加载元数据 -->
+        <video muted loop playsinline preload="metadata" style="width:100%; height:auto; display:block; background:#000;">
+            <!-- 添加 #t=0.1 让浏览器加载第一帧 -->
+            <source src="../images/悲伤是水做的.MP4#t=0.1" type="video/mp4">
+            <!-- 后备内容：如果视频无法加载，显示文字 -->
+            <p style="color:white; padding:20px; text-align:center;">视频预览不可用</p>
+        </video>
+        <!-- 播放图标覆盖层 -->
+        <div style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); width: 40px; height: 40px; background: rgba(255,215,0,0.8); border-radius: 50%; display: flex; align-items: center; justify-content: center; color: #333; font-size: 20px; opacity: 0.8;">
+            ▶
+        </div>
+    </div>
+    <div class="rednote-info">
+        <h3 class="rednote-title">悲伤是水做的</h3>
+        <p class="rednote-date">2026.01</p>
+    </div>
+</div>
+
+            <!-- 作品卡片 4 - cosplay -->
+            <div class="rednote-card" onclick="window.open('../images/saber- cosplay2.jpg', '_blank')">
+                <div class="rednote-image">
+                    <img src="../images/saber- cosplay2.jpg" alt="images/saber- cosplay2.jpg">
+                </div>
+                <div class="rednote-info">
+                    <h3 class="rednote-title">Saber Cosplay</h3>
+                    <p class="rednote-date">2025.12</p>
+                </div>
+            </div>
+
+            <!-- 作品卡片 5 - cosplay -->
+            <div class="rednote-card" onclick="window.open('../images/saber女仆cos.JPG', '_blank')">
+                <div class="rednote-image">
+                    <img src="../images/saber女仆cos.JPG" alt="images/saber女仆cos.JPG">
+                </div>
+                <div class="rednote-info">
+                    <h3 class="rednote-title">Saber Cosplay 女仆</h3>
+                    <p class="rednote-date">2025.10</p>
+                </div>
+            </div>
+
+            <!-- 作品卡片 6 - 圣诞贺图 -->
+            <div class="rednote-card" onclick="window.open('../images/圣诞节贺图.PNG', '_blank')">
+                <div class="rednote-image">
+                    <img src="../images/圣诞节贺图.PNG" alt="images/圣诞节贺图.PNG">
+                </div>
+                <div class="rednote-info">
+                    <h3 class="rednote-title">2025圣诞贺图</h3>
+                    <p class="rednote-date">2025.08</p>
+                </div>
+            </div>
+
+            <!-- 作品卡片 7 - 妈妈的春节贺图 -->
+            <div class="rednote-card" onclick="window.open('../images/妈妈春节贺图.JPGg', '_blank')">
+                <div class="rednote-image">
+                    <img src="../images/妈妈春节贺图.JPG" alt="images/妈妈春节贺图.JPG">
+                </div>
+                <div class="rednote-info">
+                    <h3 class="rednote-title">妈妈的春节贺图</h3>
+                    <p class="rednote-date">2025.06</p>
+                </div>
+            </div>
+
+<!-- 作品卡片12 - PDF文件带缩略图 -->
+<div class="rednote-card" onclick="window.open('../images/my baking pieces.pdf', '_blank')">
+    <div class="rednote-image" style="position: relative;">
+        <!-- PDF封面图 -->
+        <img src="../images/妈妈的生日蛋糕.jpg" alt="images/my baking pieces.pdf">
+        <!-- PDF角标 -->
+        <div style="position: absolute; bottom: 10px; right: 10px; background: #f40; color: white; padding: 4px 8px; border-radius: 4px; font-size: 12px; font-weight: bold;">
+            PDF
+        </div>
+    </div>
+    <div class="rednote-info">
+        <h3 class="rednote-title">baking pieces</h3>
+        <p class="rednote-date">2026.02</p>
+    </div>
+</div>
+
+<!-- 作品卡片 7.5 - 2024春节贺图 -->
+            <div class="rednote-card" onclick="window.open('../images/2024春节贺图.jpg', '_blank')">
+                <div class="rednote-image">
+                    <img src="../images/2024春节贺图.jpg" alt="images/2024春节贺图.jpg">
+                </div>
+                <div class="rednote-info">
+                    <h3 class="rednote-title">2024春节贺图</h3>
+                    <p class="rednote-date">2025.06</p>
+                </div>
+            </div>
+
+
+            <!-- 作品卡片 8 - 蝶祈cos -->
+            <div class="rednote-card" onclick="window.open('../images/蝶祈cos.PNG', '_blank')">
+                <div class="rednote-image">
+                    <img src="../images/蝶祈cos.PNG" alt="images/蝶祈cos.PNG">
+                </div>
+                <div class="rednote-info">
+                    <h3 class="rednote-title">蝶祈Cosplay</h3>
+                    <p class="rednote-date">2025.04</p>
+                </div>
+            </div>
+
+            <!-- 作品卡片 9 - 视频作品（完整修复版） -->
+<div class="rednote-card" onclick="window.open('../images/鸽子舞.MP4', '_blank')">
+    <div class="rednote-image" style="position: relative;">
+        <!-- 使用视频标签，静音、循环、只加载元数据 -->
+        <video muted loop playsinline preload="metadata" style="width:100%; height:auto; display:block; background:#000;">
+            <!-- 添加 #t=0.1 让浏览器加载第一帧 -->
+            <source src="../images/鸽子舞.MP4#t=0.1" type="video/mp4">
+            <!-- 后备内容：如果视频无法加载，显示文字 -->
+            <p style="color:white; padding:20px; text-align:center;">视频预览不可用</p>
+        </video>
+        <!-- 播放图标覆盖层 -->
+        <div style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); width: 40px; height: 40px; background: rgba(255,215,0,0.8); border-radius: 50%; display: flex; align-items: center; justify-content: center; color: #333; font-size: 20px; opacity: 0.8;">
+            ▶
+        </div>
+    </div>
+    <div class="rednote-info">
+        <h3 class="rednote-title">鸽子舞</h3>
+        <p class="rednote-date">2026.01</p>
+    </div>
+</div>
+
+             <!-- 作品卡片 10 - 视频作品（完整修复版） -->
+<div class="rednote-card" onclick="window.open('../images/理理我舞蹈.MP4', '_blank')">
+    <div class="rednote-image" style="position: relative;">
+        <!-- 使用视频标签，静音、循环、只加载元数据 -->
+        <video muted loop playsinline preload="metadata" style="width:100%; height:auto; display:block; background:#000;">
+            <!-- 添加 #t=0.1 让浏览器加载第一帧 -->
+            <source src="../images/理理我舞蹈.MP4#t=0.1" type="video/mp4">
+            <!-- 后备内容：如果视频无法加载，显示文字 -->
+            <p style="color:white; padding:20px; text-align:center;">视频预览不可用</p>
+        </video>
+        <!-- 播放图标覆盖层 -->
+        <div style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); width: 40px; height: 40px; background: rgba(255,215,0,0.8); border-radius: 50%; display: flex; align-items: center; justify-content: center; color: #333; font-size: 20px; opacity: 0.8;">
+            ▶
+        </div>
+    </div>
+    <div class="rednote-info">
+        <h3 class="rednote-title">理理我嘛舞蹈</h3>
+        <p class="rednote-date">2026.01</p>
+    </div>
+</div>
+
+<!-- 作品卡片11 - PDF文件带缩略图 -->
+<div class="rednote-card" onclick="window.open('../images/some.pdf', '_blank')">
+    <div class="rednote-image" style="position: relative;">
+        <!-- PDF封面图 -->
+        <img src="../images/画过的画5.PNG" alt="images/some.pdf">
+        <!-- PDF角标 -->
+        <div style="position: absolute; bottom: 10px; right: 10px; background: #f40; color: white; padding: 4px 8px; border-radius: 4px; font-size: 12px; font-weight: bold;">
+            PDF
+        </div>
+    </div>
+    <div class="rednote-info">
+        <h3 class="rednote-title">drawings profile</h3>
+        <p class="rednote-date">2026.02</p>
+    </div>
+</div>
+
+
+<!-- 作品卡片13 - PDF文件带缩略图 -->
+<div class="rednote-card" onclick="window.open('../images/my photograph pieces.pdf', '_blank')">
+    <div class="rednote-image" style="position: relative;">
+        <!-- PDF封面图 -->
+        <img src="../images/照片.jpg" alt="images/my photograph pieces.pdf">
+        <!-- PDF角标 -->
+        <div style="position: absolute; bottom: 10px; right: 10px; background: #f40; color: white; padding: 4px 8px; border-radius: 4px; font-size: 12px; font-weight: bold;">
+            PDF
+        </div>
+    </div>
+    <div class="rednote-info">
+        <h3 class="rednote-title">photographs</h3>
+        <p class="rednote-date">2026.02</p>
+    </div>
+</div>
+
+<!-- 工具区 -->
+      <div class="ic-tools">
+        <h2>My Creating Tools</h2>
+        <div class="tools-grid">
+          <div class="tool-item">
+            <span class="tool-icon">🎨</span>
+            <span>Procreate</span>
+          </div>
+          <div class="tool-item">
+            <span class="tool-icon">🕹️</span>
+            <span>PS</span>
+          </div>
+          <div class="tool-item">
+            <span class="tool-icon">👋</span>
+            <span>My Hands</span>
+          </div>
+          <div class="tool-item">
+            <span class="tool-icon">📷</span>
+            <span>Camera</span>
+          </div>
+        </div>
+      </div>
+    </div> <!-- index-container 结束 -->
+  </section> <!-- topic 结束 -->
+
+</div> <!-- main-content 结束 -->
+
+
+    <!-- 页脚 -->
+    <footer class="footer">
+        <p>&copy; 2026 My Showcase Website By Ariel Yang</p>
+    </footer>
+
+    <!-- 音乐播放器 JS -->
+    <script src="../js/music-player.js"></script>
+</body>
+</html>
