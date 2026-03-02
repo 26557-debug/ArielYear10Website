@@ -3,131 +3,192 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>My master peices</title>
-    <!-- 引入公用的 CSS 文件 -->
-    <link rel="stylesheet" href="../css/stylels.css">
-    <!-- 如果你有专门为 who am i 页面写的额外样式，可以再引入一个，但这里我们先用 stylels.css -->
+    <title>My Masterpiece</title>
+    <!-- 引入主页的基础样式 -->
+    <link rel="stylesheet" href="../style.css">
+    <!-- 专门为 Masterpiece 页面创建的独立CSS -->
+    <link rel="stylesheet" href="../css/masterpiece.css">
 </head>
 <body>
 
-    <!-- 🎬 背景视频（永远存在） 注意路径是从 html 文件夹返回上一级找 images -->
+    <!-- 背景视频 -->
     <video id="bg-video" autoplay muted loop playsinline>
-        <source src="images/背景视频.mp4" type="video/mp4">
+        <source src="../images/背景视频.mp4" type="video/mp4">
     </video>
 
-    <!-- 🎵 背景音乐 (控制按钮由 music-player.js 负责) -->
+    <!-- 背景音乐 -->
     <audio id="bgm" loop>
         <source src="../images/荒诞人生_M3mo.mp3" type="audio/mpeg">
     </audio>
-    <!-- 音乐按钮的 HTML 由 JS 动态生成，或者我们直接写在下面，让 JS 去控制它 -->
     <button id="music-btn">▶ Play Music</button>
 
-    <!-- ===== 导航栏 (所有子页面共用) ===== -->
-    <!-- 注意这里的链接要指向正确的路径 -->
+    <!-- 导航栏 -->
     <section class="topic-title">
         <div class="tab-nav">
             <button class="tab-btn" onclick="location.href='../index.html'">Home</button>
-            <button class="tab-btn" onclick="location.href='who-am-i.html'">Who am I</button>
-            <button class="tab-btn" onclick="location.href='my-hobbies.html'">My Hobbies</button>
-            <button class="tab-btn active" onclick="location.href='my- masterpieces.html'">My Masterpiece</button>
-            <!-- 你可以保留其他按钮，或者去掉，看你需求 -->
-            <!--
             <button class="tab-btn" onclick="location.href='image-creation.html'">Image Creation</button>
             <button class="tab-btn" onclick="location.href='website.html'">Website</button>
-            ... 其他按钮
-            -->
+            <button class="tab-btn" onclick="location.href='computer-science.html'">Computer Science</button>
+            <button class="tab-btn" onclick="location.href='programming.html'">Programming</button>
+            <button class="tab-btn" onclick="location.href='3d-modelling.html'">3D Modelling/Animation</button>
+            <button class="tab-btn" onclick="location.href='audio-visual.html'">D4M/Audio Visual</button>
+            <button class="tab-btn" onclick="location.href='video-game.html'">Video Game</button>
         </div>
     </section>
 
-    <!-- ⬅️ 返回箭头 (放在导航栏下面，内容上面) -->
-    <div class="back-arrow" onclick="history.back()">⬅ Back</div>
+    <!-- 返回Homepage的箭头 -->
+    <div class="masterpiece-back" onclick="location.href='../index.html'">
+        <span class="arrow-icon">←</span> Back to Home
+    </div>
 
-    <!-- 🔄 页面主要内容 - 这里是 Who am I 特有的可滚动内容 -->
-    <main id="page-content" class="who-content">
-        <!-- 这里的内容将完全替换为你截图中的样子 -->
-        <section class="scroll-section">
-            <h2>Who am I?</h2>
-            <p>??/2026</p>
-            <p>Let's start to get to know me!!</p>
-            <img src="https://picsum.photos/400/300?1" alt="Placeholder 1">
-            <p>This is my introduction... More about me...</p>
-        </section>
+    <!-- 分类标签 -->
+    <div class="masterpiece-categories">
+        <span class="masterpiece-category-btn" onclick="location.href='who-am-i.html'">Who am I?</span>
+        <span class="masterpiece-category-btn" onclick="location.href='my-hobbies.html'">My Hobbies</span>
+        <span class="masterpiece-category-btn active" onclick="location.href='my-masterpiece.html'">My Masterpiece</span>
+    </div>
 
-        <section class="scroll-section">
-            <h2>My Story</h2>
-            <img src="https://picsum.photos/400/300?2" alt="Placeholder 2">
-            <p>Something interesting about my past...</p>
-        </section>
+    <!-- 主内容区 - 画廊 -->
+    <div class="masterpiece-container">
+        
+        <!-- 分类标题 -->
+        <div class="masterpiece-title">
+            <h2>My Masterpiece</h2>
+            <p>??/??/2026 - Let's see my works that I'm very proud of...</p>
+        </div>
 
-        <section class="scroll-section">
-            <h2>My Dreams</h2>
-            <img src="https://picsum.photos/400/300?3" alt="Placeholder 3">
-            <p>What I want to achieve in the future...</p>
-        </section>
-        <!-- 可以继续添加更多 scroll-section -->
-    </main>
+        <!-- 作品画廊网格 -->
+        <div class="masterpiece-gallery">
+            
+            <!-- 作品卡片 1 - 2025春节贺图 -->
+            <div class="masterpiece-card" onclick="window.open('../images/2025春节贺图.JPG', '_blank')">
+                <div class="masterpiece-image">
+                    <img src="../images/2025春节贺图.JPG" alt="2025春节贺图">
+                </div>
+                <div class="masterpiece-info">
+                    <h3>2025春节贺图</h3>
+                    <div class="masterpiece-date">2025.02</div>
+                    <div class="masterpiece-description">
+                        春节主题插画，融合传统与现代元素，表达对新年的美好祝愿。
+                    </div>
+                    <div class="masterpiece-tags">
+                        <span class="masterpiece-tag">drawing</span>
+                        <span class="masterpiece-tag">festival</span>
+                    </div>
+                </div>
+            </div>
 
-    <!-- 📜 引入公用的 JavaScript 文件 -->
+            <!-- 作品卡片 2 - 示例作品1 -->
+            <div class="masterpiece-card" onclick="window.open('../images/作品1.jpg', '_blank')">
+                <div class="masterpiece-image">
+                    <img src="../images/作品1.jpg" alt="作品1" onerror="this.src='https://picsum.photos/500/350?random=7'">
+                </div>
+                <div class="masterpiece-info">
+                    <h3>PowerPoint设计</h3>
+                    <div class="masterpiece-date">2026.01</div>
+                    <div class="masterpiece-description">
+                        创意PPT模板设计，适用于科技类演示。
+                    </div>
+                    <div class="masterpiece-tags">
+                        <span class="masterpiece-tag">power points</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 作品卡片 3 - 示例作品2 -->
+            <div class="masterpiece-card" onclick="window.open('../images/作品2.jpg', '_blank')">
+                <div class="masterpiece-image">
+                    <img src="../images/作品2.jpg" alt="作品2" onerror="this.src='https://picsum.photos/500/350?random=8'">
+                </div>
+                <div class="masterpiece-info">
+                    <h3>Poster设计</h3>
+                    <div class="masterpiece-date">2025.12</div>
+                    <div class="masterpiece-description">
+                        校园活动海报设计，充满活力与创意。
+                    </div>
+                    <div class="masterpiece-tags">
+                        <span class="masterpiece-tag">posters</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 作品卡片 4 - 示例作品3 -->
+            <div class="masterpiece-card" onclick="window.open('../images/作品3.jpg', '_blank')">
+                <div class="masterpiece-image">
+                    <img src="../images/作品3.jpg" alt="作品3" onerror="this.src='https://picsum.photos/500/350?random=9'">
+                </div>
+                <div class="masterpiece-info">
+                    <h3>绘画作品</h3>
+                    <div class="masterpiece-date">2025.10</div>
+                    <div class="masterpiece-description">
+                        数字绘画作品，探索色彩与光影的表达。
+                    </div>
+                    <div class="masterpiece-tags">
+                        <span class="masterpiece-tag">drawings/paintings</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 作品卡片 5 - 摄影作品 -->
+            <div class="masterpiece-card" onclick="window.open('../images/作品4.jpg', '_blank')">
+                <div class="masterpiece-image">
+                    <img src="../images/作品4.jpg" alt="摄影作品" onerror="this.src='https://picsum.photos/500/350?random=10'">
+                </div>
+                <div class="masterpiece-info">
+                    <h3>摄影作品</h3>
+                    <div class="masterpiece-date">2025.08</div>
+                    <div class="masterpiece-description">
+                        城市风光摄影，捕捉瞬间的美好。
+                    </div>
+                    <div class="masterpiece-tags">
+                        <span class="masterpiece-tag">photographs</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 作品卡片 6 - 烘焙作品 -->
+            <div class="masterpiece-card" onclick="window.open('../images/作品5.jpg', '_blank')">
+                <div class="masterpiece-image">
+                    <img src="../images/作品5.jpg" alt="烘焙作品" onerror="this.src='https://picsum.photos/500/350?random=11'">
+                </div>
+                <div class="masterpiece-info">
+                    <h3>烘焙作品</h3>
+                    <div class="masterpiece-date">2025.06</div>
+                    <div class="masterpiece-description">
+                        手工烘焙，把美味变成艺术品。
+                    </div>
+                    <div class="masterpiece-tags">
+                        <span class="masterpiece-tag">baking works</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 作品卡片 7 - Cosplay -->
+            <div class="masterpiece-card" onclick="window.open('../images/作品6.jpg', '_blank')">
+                <div class="masterpiece-image">
+                    <img src="../images/作品6.jpg" alt="Cosplay" onerror="this.src='https://picsum.photos/500/350?random=12'">
+                </div>
+                <div class="masterpiece-info">
+                    <h3>Cosplay</h3>
+                    <div class="masterpiece-date">2025.04</div>
+                    <div class="masterpiece-description">
+                        动漫角色扮演，还原喜欢的角色。
+                    </div>
+                    <div class="masterpiece-tags">
+                        <span class="masterpiece-tag">cosplay</span>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <!-- 页脚 -->
+    <footer class="footer">
+        <p>&copy; 2026 My Showcase Website By Ariel Yang</p>
+    </footer>
+
+    <!-- 音乐播放器 JS -->
     <script src="../js/music-player.js"></script>
-    <!-- 如果有专门为 who am i 页面写的 JS，可以在这里写，或者引入另一个文件 -->
-    <script>
-        // 可以在这里初始化滚动动画，但 stylels.css 里的 JS 可能已经做了
-        // 为了保证动画生效，我们可以再调用一次
-        document.addEventListener("DOMContentLoaded", function() {
-            // 这个函数来自 stylels.css 里的 <script> 标签，但现在我们把 JS 都放到 music-player.js 里更好
-            // 为了简单，我们直接在 stylels.css 的 script 里定义了 initScrollAnimation，所以我们在这里调用它
-            if (typeof initScrollAnimation === 'function') {
-                initScrollAnimation();
-            } else {
-                // 如果函数不存在，我们在这里手动实现一个
-                const items = document.querySelectorAll(".scroll-section");
-                const observer = new IntersectionObserver(entries => {
-                    entries.forEach(entry => {
-                        if (entry.isIntersecting) {
-                            entry.target.classList.add("visible");
-                        }
-                    });
-                }, { threshold: 0.2 });
-                items.forEach(item => observer.observe(item));
-            }
-        });
-    </script>
-
-<script>
-    // ===== js/music-player.js =====
-document.addEventListener('DOMContentLoaded', function() {
-    const bgm = document.getElementById('bgm');
-    const musicBtn = document.getElementById('music-btn');
-
-    // 确保元素存在
-    if (!bgm || !musicBtn) return;
-
-    // 设置初始状态
-    let isPlaying = false;
-
-    // 尝试自动播放 (很多浏览器会阻止)
-    bgm.play().then(() => {
-        isPlaying = true;
-        musicBtn.textContent = '⏸ Pause Music';
-    }).catch(error => {
-        console.log('自动播放失败，用户需要点击按钮。');
-        isPlaying = false;
-        musicBtn.textContent = '▶ Play Music';
-    });
-
-    // 按钮点击事件
-    musicBtn.addEventListener('click', function() {
-        if (isPlaying) {
-            bgm.pause();
-            musicBtn.textContent = '▶ Play Music';
-        } else {
-            bgm.play();
-            musicBtn.textContent = '⏸ Pause Music';
-        }
-        isPlaying = !isPlaying;
-    });
-});
-</script>
-
 </body>
 </html>

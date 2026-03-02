@@ -1,0 +1,244 @@
+/* ===== css/masterpiece.css ===== */
+/* 这个文件只影响 My Masterpiece 页面 */
+
+/* 主容器 */
+.masterpiece-container {
+    max-width: 1300px;
+    margin: 0 auto;
+    padding: 20px 30px 50px;
+    min-height: 60vh;
+}
+
+/* ===== 返回Homepage的箭头 ===== */
+.masterpiece-back {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    cursor: pointer;
+    margin: 10px 0 30px 0;
+    padding: 10px 20px;
+    background: rgba(0, 0, 0, 0.4);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 40px;
+    color: white;
+    font-size: 16px;
+    font-weight: 500;
+    transition: all 0.3s ease;
+    width: fit-content;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+}
+
+.masterpiece-back:hover {
+    background: rgba(255, 215, 0, 0.25);
+    transform: translateX(-5px);
+    border-color: #ffd966;
+    box-shadow: 0 8px 25px rgba(255, 215, 0, 0.2);
+}
+
+.masterpiece-back .arrow-icon {
+    font-size: 20px;
+    line-height: 1;
+    transition: transform 0.3s ease;
+}
+
+.masterpiece-back:hover .arrow-icon {
+    transform: translateX(-3px);
+}
+
+/* ===== 分类标签 ===== */
+.masterpiece-categories {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    margin: 20px 0 40px;
+    flex-wrap: wrap;
+}
+
+.masterpiece-category-btn {
+    padding: 12px 35px;
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 40px;
+    color: white;
+    font-size: 18px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.4s ease;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+}
+
+.masterpiece-category-btn:hover {
+    background: rgba(255, 215, 0, 0.25);
+    transform: translateY(-3px);
+    border-color: #ffd966;
+    box-shadow: 0 8px 25px rgba(255, 215, 0, 0.2);
+}
+
+.masterpiece-category-btn.active {
+    background: #ffd966;
+    color: #333;
+    border-color: #ffd966;
+    font-weight: bold;
+    box-shadow: 0 8px 25px rgba(255, 215, 0, 0.4);
+}
+
+/* ===== 画廊网格 ===== */
+.masterpiece-gallery {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+    gap: 30px;
+    margin-top: 30px;
+    animation: fadeIn 0.8s ease;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* ===== 作品卡片 ===== */
+.masterpiece-card {
+    background: rgba(30, 30, 30, 0.8);
+    backdrop-filter: blur(10px);
+    border-radius: 20px;
+    overflow: hidden;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    transition: all 0.4s ease;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+    cursor: pointer;
+    height: fit-content;
+}
+
+.masterpiece-card:hover {
+    transform: translateY(-10px);
+    border-color: #ffd966;
+    box-shadow: 0 20px 40px rgba(255, 215, 0, 0.2);
+}
+
+/* 作品图片区域 */
+.masterpiece-image {
+    width: 100%;
+    height: 250px;
+    overflow: hidden;
+    position: relative;
+}
+
+.masterpiece-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.6s ease;
+}
+
+.masterpiece-card:hover .masterpiece-image img {
+    transform: scale(1.1);
+}
+
+/* 作品信息区域 */
+.masterpiece-info {
+    padding: 20px;
+    color: white;
+}
+
+.masterpiece-info h3 {
+    font-size: 1.5em;
+    margin-bottom: 8px;
+    color: #ffd966;
+    font-family: 'Impact', 'Arial Black', sans-serif;
+}
+
+.masterpiece-date {
+    font-size: 0.9em;
+    color: rgba(255, 255, 255, 0.6);
+    margin-bottom: 12px;
+    font-style: italic;
+}
+
+.masterpiece-description {
+    font-size: 0.95em;
+    line-height: 1.6;
+    color: rgba(255, 255, 255, 0.9);
+    margin-bottom: 15px;
+    min-height: 60px;
+}
+
+/* 标签组 */
+.masterpiece-tags {
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+}
+
+.masterpiece-tag {
+    padding: 5px 15px;
+    background: rgba(255, 215, 0, 0.15);
+    border-radius: 25px;
+    font-size: 0.85em;
+    color: #ffd966;
+    border: 1px solid rgba(255, 215, 0, 0.3);
+    transition: all 0.3s ease;
+}
+
+.masterpiece-tag:hover {
+    background: rgba(255, 215, 0, 0.3);
+    transform: scale(1.05);
+}
+
+/* 分类标题 */
+.masterpiece-title {
+    text-align: center;
+    margin: 30px 0 20px;
+}
+
+.masterpiece-title h2 {
+    color: #ffd966;
+    font-size: 2.5em;
+    font-family: 'Impact', 'Arial Black', sans-serif;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+    margin-bottom: 10px;
+}
+
+.masterpiece-title p {
+    color: rgba(255, 255, 255, 0.8);
+    font-size: 1.1em;
+}
+
+/* 响应式设计 */
+@media (max-width: 768px) {
+    .masterpiece-gallery {
+        grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+        gap: 20px;
+    }
+    
+    .masterpiece-category-btn {
+        padding: 10px 25px;
+        font-size: 16px;
+    }
+    
+    .masterpiece-info h3 {
+        font-size: 1.3em;
+    }
+}
+
+@media (max-width: 480px) {
+    .masterpiece-gallery {
+        grid-template-columns: 1fr;
+    }
+    
+    .masterpiece-categories {
+        gap: 15px;
+    }
+    
+    .masterpiece-category-btn {
+        padding: 8px 20px;
+        font-size: 14px;
+    }
+}

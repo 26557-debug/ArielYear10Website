@@ -1,9 +1,20 @@
 // ===== js/who-am-i.js =====
-// 这个文件只控制 who-am-i 页面内部的切换
+// 这个文件只控制 who-am-i 页面内部的切换 (Who am I? 和 My Hobbies)
 
 document.addEventListener('DOMContentLoaded', function() {
-    // 默认加载 Who am I 内容
-    switchWhoPage('who');
+    // 检查哪个按钮有active类，就加载哪个页面
+    const activeBtn = document.querySelector('.category-btn.active');
+    if (activeBtn) {
+        const btnText = activeBtn.textContent.trim();
+        if (btnText.includes('Who am I')) {
+            switchWhoPage('who');
+        } else if (btnText.includes('My Hobbies')) {
+            switchWhoPage('hobbies');
+        }
+    } else {
+        // 默认加载 Who am I
+        switchWhoPage('who');
+    }
     
     // 初始化滚动动画观察器
     initScrollObserver();
@@ -19,11 +30,10 @@ function initScrollObserver() {
         });
     }, { threshold: 0.2, rootMargin: '0px' });
     
-    // 存储观察器以便后续使用
     window.whoObserver = observer;
 }
 
-// 切换 Who 页面内部的三个分类 (Who/Hobbies/Masterpiece)
+// 切换 Who 页面内部的分类 (Who/Hobbies)
 function switchWhoPage(pageType) {
     const contentDiv = document.getElementById('who-dynamic-content');
     
@@ -36,8 +46,6 @@ function switchWhoPage(pageType) {
         document.querySelectorAll('.category-btn')[0].classList.add('active');
     } else if (pageType === 'hobbies') {
         document.querySelectorAll('.category-btn')[1].classList.add('active');
-    } else if (pageType === 'masterpiece') {
-        document.querySelectorAll('.category-btn')[2].classList.add('active');
     }
     
     // 添加淡出动画
@@ -46,14 +54,11 @@ function switchWhoPage(pageType) {
     contentDiv.style.transition = 'all 0.3s ease';
     
     setTimeout(() => {
-        // 根据选择的分类生成不同内容
         contentDiv.innerHTML = generateWhoPageContent(pageType);
         
-        // 添加滑入动画
         contentDiv.style.opacity = '1';
         contentDiv.style.transform = 'translateX(0)';
         
-        // 重新观察新的滚动元素
         document.querySelectorAll('.scroll-section').forEach(el => {
             window.whoObserver.observe(el);
         });
@@ -119,65 +124,10 @@ function generateWhoPageContent(pageType) {
                 </div>
             `;
             
-        case 'masterpiece':
-            return `
-                <div class="who-page-content who-scroll-content">
-                    <section class="scroll-section">
-                        <h2>My Masterpiece</h2>
-                        <p class="date">??/??/2026</p>
-                        <p>Let's see my works that I'm very proud of...</p>
-                        <img src="https://picsum.photos/500/350?random=7" alt="Masterpiece">
-                        <p>These are the projects that represent my best work - the ones that 
-                           challenged me and helped me grow as a creator.</p>
-                    </section>
-                    
-                    <section class="scroll-section">
-                        <h2>PowerPoint Designs</h2>
-                        <img src="https://picsum.photos/500/350?random=8" alt="PowerPoint">
-                        <p>I create visually stunning presentations that tell stories and 
-                           captivate audiences.</p>
-                        <div class="tags-group">
-                            <span class="tag">power points</span>
-                        </div>
-                    </section>
-                    
-                    <section class="scroll-section">
-                        <h2>Posters & Drawings</h2>
-                        <img src="https://picsum.photos/500/350?random=9" alt="Posters">
-                        <p>From digital illustrations to traditional paintings, I love 
-                           expressing ideas through visual art.</p>
-                        <div class="tags-group">
-                            <span class="tag">posters</span>
-                            <span class="tag">drawings/paintings</span>
-                        </div>
-                    </section>
-                    
-                    <section class="scroll-section">
-                        <h2>Photography</h2>
-                        <img src="https://picsum.photos/500/350?random=10" alt="Photos">
-                        <p>My photographic journey captures beauty in everyday moments.</p>
-                        <div class="tags-group">
-                            <span class="tag">photographs</span>
-                        </div>
-                    </section>
-                    
-                    <section class="scroll-section">
-                        <h2>Baking & Cosplay</h2>
-                        <img src="https://picsum.photos/500/350?random=11" alt="Baking">
-                        <p>Creativity isn't just digital - I also enjoy baking and cosplay 
-                           as forms of artistic expression.</p>
-                        <div class="tags-group">
-                            <span class="tag">baking works</span>
-                            <span class="tag">cosplay</span>
-                        </div>
-                    </section>
-                </div>
-            `;
-            
         default:
             return '<div>Content not found</div>';
     }
 }
 
-// 暴露函数到全局，让 HTML 中的 onclick 可以调用
+// 暴露函数到全局
 window.switchWhoPage = switchWhoPage;

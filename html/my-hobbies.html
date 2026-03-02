@@ -1,87 +1,70 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="zh-CN">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Green Screen · 可滑动页面</title>
-    <!-- 正确的CSS引用 -->
-    <link rel="stylesheet" href="css/stylels.css">
-     <script src="js/who am I js.js"></script>
-    <!-- JS要用script标签，不是link -->
+    <title>My Hobbies</title>
+    <link rel="stylesheet" href="../style.css">
+    <!-- 专门为 who-am-i 页面添加的额外样式 -->
+    <link rel="stylesheet" href="../css/who-am-i.css">
 </head>
 <body>
 
-    <!-- 固定导航栏，带下划线的标签 -->
-    <nav class="slide-nav">
-        <ul>
-            <li><a href="#home" class="nav-link active">Home</a></li>
-            <li><a href="#junior" class="nav-link">Junior</a></li>
-            <li><a href="#year11" class="nav-link">Year 11</a></li>
-            <li><a href="#year12" class="nav-link">Year 12</a></li>
-            <li><a href="#year13" class="nav-link">Year 13</a></li>
-            <li><a href="#scholarship" class="nav-link">Scholarship</a></li>
-            <li><a href="#resources" class="nav-link">Resources</a></li>
-            <li><a href="#clubs" class="nav-link">Clubs</a></li>
-        </ul>
-    </nav>
+    <!-- 背景视频 (与主页相同) -->
+    <video id="bg-video" autoplay muted loop playsinline>
+        <source src="../images/背景视频.mp4" type="video/mp4">
+    </video>
 
-    <!-- 可上下滑动的内容区域 (scroll container) -->
-    <main class="scroll-content" id="scrollContent">
-        <!-- 每个 section 对应一个导航标签，id 与链接 hash 匹配 -->
-        <section id="home" class="card-section">
-            <h2>🏠 Home</h2>
-            <div class="task-box">
-                <h3>Task 1 | Green Screen Adventures</h3>
-                <p>Gimp is an open-source raster graphics editor used for image manipulation when images are enhanced, manipulated, altered or modified in a way that's pleasing to our eyes or to obtain a certain effect for certain reasons/goal objective we have in mind. Basically, it is anything that changes an image from its original state.</p>
-                <p>Green Screens are used as a visual-effects and post-production technique for layering two images or video streams together based on colour hues (chroma range). The technique has been used in many fields to remove a background from the subject of a photo or video—particularly the newscasting, motion picture, and video game industries.</p>
-            </div>
-        </section>
+    <!-- 背景音乐 (与主页相同) -->
+    <audio id="bgm" loop>
+        <source src="../images/荒诞人生_M3mo.mp3" type="audio/mpeg">
+    </audio>
+    <button id="music-btn">▶ Play Music</button>
 
-        <section id="junior" class="card-section">
-            <h2>🧒 Junior</h2>
-            <p><strong>Foundation · Key Stage 3</strong></p>
-            <p>Introduction to digital graphics: raster vs vector. Create your own character using basic shapes.</p>
-        </section>
+    <!-- ===== 完整的导航栏 (与主页完全一致) ===== -->
+    <section class="topic-title">
+        <div class="tab-nav">
+            <button class="tab-btn" onclick="location.href='../index.html'">Home</button>
+            <button class="tab-btn" onclick="location.href='image-creation.html'">Image Creation</button>
+            <button class="tab-btn" onclick="location.href='website.html'">Website</button>
+            <button class="tab-btn" onclick="location.href='computer-science.html'">Computer Science</button>
+            <button class="tab-btn" onclick="location.href='programming.html'">Programming</button>
+            <button class="tab-btn" onclick="location.href='3d-modelling.html'">3D Modelling/Animation</button>
+            <button class="tab-btn" onclick="location.href='audio-visual.html'">D4M/Audio Visual</button>
+            <button class="tab-btn" onclick="location.href='video-game.html'">Video Game</button>
+        </div>
+    </section>
 
-        <section id="year11" class="card-section">
-            <h2>📐 Year 11</h2>
-            <p>Advanced photo manipulation & green screen compositing. Projects include magazine covers and movie posters.</p>
-        </section>
+     <!-- ⬅️ 返回Homepage的箭头 (放在导航栏下面，分类标签上面) -->
+        <div class="back-to-home" onclick="location.href='../index.html'">
+            <span class="arrow-icon">←</span> Back to Home
+        </div>
 
-        <section id="year12" class="card-section">
-            <h2>✒️ Year 12</h2>
-            <p>Vector character design & animation pipelines. Master Inkscape/Illustrator tools and prepare portfolio work.</p>
-        </section>
+    <!-- ===== Who am I 页面专属内容 ===== -->
+    <div class="who-container">
 
-        <section id="year13" class="card-section">
-            <h2>🎓 Year 13</h2>
-            <p>Professional workflows: chroma keying in post-production, colour grading, and motion graphics.</p>
-        </section>
 
-        <section id="scholarship" class="card-section">
-            <h2>🏅 Scholarship</h2>
-            <p>High-level project: create a 30-second green screen sequence with original vector assets.</p>
-        </section>
+        <!-- 分类标签 (Who am I? / My Hobbies / My Masterpiece) -->
+        <div class="who-categories">
+            <span class="category-btn" onclick="switchWhoPage('who')">Who am I?</span>
+            <span class="category-btn active" onclick="switchWhoPage('hobbies')">My Hobbies</span>
+            <span class="category-btn" onclick="switchWhoPage('masterpiece')">My Masterpiece</span>
+        </div>
 
-        <section id="resources" class="card-section">
-            <h2>📚 Resources</h2>
-            <p>Software: Inkscape (free) · Adobe Illustrator · Gimp · Blender. Download assets and brushes.</p>
-        </section>
+        <!-- 动态内容区域 (用于切换 Who/ Hobbies/ Masterpiece) -->
+        <div id="who-dynamic-content" class="who-dynamic-content">
+            <!-- 默认显示 Who am I 内容 -->
+        </div>
+    </div>
 
-        <section id="clubs" class="card-section">
-            <h2>🎮 Clubs</h2>
-            <p>Green Screen Club · VFX Society · Game Design Group. Meetings every Wednesday.</p>
-        </section>
+    <!-- 页脚 (与主页相同) -->
+    <footer class="footer">
+        <p>&copy; 2026 My Showcase Website By Ariel Yang</p>
+    </footer>
 
-        <!-- 额外的填充内容，使滑动效果更明显 -->
-        <div class="extra-space"></div>
-    </main>
-
-    <!-- 外部 JavaScript 文件 (script.js) -->
-    <script src="script.js"></script>
-    <script src="js/music-player.js"></script>
+    <!-- 音乐播放器 JS (与主页相同) -->
+    <script src="../js/music-player.js"></script>
+    <!-- Who am I 页面专属 JS -->
+    <script src="../js/who-am-i.js"></script>
 </body>
 </html>
-
-
-
