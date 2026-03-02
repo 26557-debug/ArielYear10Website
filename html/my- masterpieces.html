@@ -1,1 +1,133 @@
-<script src="js/music-player.js"></script>
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My master peices</title>
+    <!-- 引入公用的 CSS 文件 -->
+    <link rel="stylesheet" href="../css/stylels.css">
+    <!-- 如果你有专门为 who am i 页面写的额外样式，可以再引入一个，但这里我们先用 stylels.css -->
+</head>
+<body>
+
+    <!-- 🎬 背景视频（永远存在） 注意路径是从 html 文件夹返回上一级找 images -->
+    <video id="bg-video" autoplay muted loop playsinline>
+        <source src="images/背景视频.mp4" type="video/mp4">
+    </video>
+
+    <!-- 🎵 背景音乐 (控制按钮由 music-player.js 负责) -->
+    <audio id="bgm" loop>
+        <source src="../images/荒诞人生_M3mo.mp3" type="audio/mpeg">
+    </audio>
+    <!-- 音乐按钮的 HTML 由 JS 动态生成，或者我们直接写在下面，让 JS 去控制它 -->
+    <button id="music-btn">▶ Play Music</button>
+
+    <!-- ===== 导航栏 (所有子页面共用) ===== -->
+    <!-- 注意这里的链接要指向正确的路径 -->
+    <section class="topic-title">
+        <div class="tab-nav">
+            <button class="tab-btn" onclick="location.href='../index.html'">Home</button>
+            <button class="tab-btn" onclick="location.href='who-am-i.html'">Who am I</button>
+            <button class="tab-btn" onclick="location.href='my-hobbies.html'">My Hobbies</button>
+            <button class="tab-btn active" onclick="location.href='my- masterpieces.html'">My Masterpiece</button>
+            <!-- 你可以保留其他按钮，或者去掉，看你需求 -->
+            <!--
+            <button class="tab-btn" onclick="location.href='image-creation.html'">Image Creation</button>
+            <button class="tab-btn" onclick="location.href='website.html'">Website</button>
+            ... 其他按钮
+            -->
+        </div>
+    </section>
+
+    <!-- ⬅️ 返回箭头 (放在导航栏下面，内容上面) -->
+    <div class="back-arrow" onclick="history.back()">⬅ Back</div>
+
+    <!-- 🔄 页面主要内容 - 这里是 Who am I 特有的可滚动内容 -->
+    <main id="page-content" class="who-content">
+        <!-- 这里的内容将完全替换为你截图中的样子 -->
+        <section class="scroll-section">
+            <h2>Who am I?</h2>
+            <p>??/2026</p>
+            <p>Let's start to get to know me!!</p>
+            <img src="https://picsum.photos/400/300?1" alt="Placeholder 1">
+            <p>This is my introduction... More about me...</p>
+        </section>
+
+        <section class="scroll-section">
+            <h2>My Story</h2>
+            <img src="https://picsum.photos/400/300?2" alt="Placeholder 2">
+            <p>Something interesting about my past...</p>
+        </section>
+
+        <section class="scroll-section">
+            <h2>My Dreams</h2>
+            <img src="https://picsum.photos/400/300?3" alt="Placeholder 3">
+            <p>What I want to achieve in the future...</p>
+        </section>
+        <!-- 可以继续添加更多 scroll-section -->
+    </main>
+
+    <!-- 📜 引入公用的 JavaScript 文件 -->
+    <script src="../js/music-player.js"></script>
+    <!-- 如果有专门为 who am i 页面写的 JS，可以在这里写，或者引入另一个文件 -->
+    <script>
+        // 可以在这里初始化滚动动画，但 stylels.css 里的 JS 可能已经做了
+        // 为了保证动画生效，我们可以再调用一次
+        document.addEventListener("DOMContentLoaded", function() {
+            // 这个函数来自 stylels.css 里的 <script> 标签，但现在我们把 JS 都放到 music-player.js 里更好
+            // 为了简单，我们直接在 stylels.css 的 script 里定义了 initScrollAnimation，所以我们在这里调用它
+            if (typeof initScrollAnimation === 'function') {
+                initScrollAnimation();
+            } else {
+                // 如果函数不存在，我们在这里手动实现一个
+                const items = document.querySelectorAll(".scroll-section");
+                const observer = new IntersectionObserver(entries => {
+                    entries.forEach(entry => {
+                        if (entry.isIntersecting) {
+                            entry.target.classList.add("visible");
+                        }
+                    });
+                }, { threshold: 0.2 });
+                items.forEach(item => observer.observe(item));
+            }
+        });
+    </script>
+
+<script>
+    // ===== js/music-player.js =====
+document.addEventListener('DOMContentLoaded', function() {
+    const bgm = document.getElementById('bgm');
+    const musicBtn = document.getElementById('music-btn');
+
+    // 确保元素存在
+    if (!bgm || !musicBtn) return;
+
+    // 设置初始状态
+    let isPlaying = false;
+
+    // 尝试自动播放 (很多浏览器会阻止)
+    bgm.play().then(() => {
+        isPlaying = true;
+        musicBtn.textContent = '⏸ Pause Music';
+    }).catch(error => {
+        console.log('自动播放失败，用户需要点击按钮。');
+        isPlaying = false;
+        musicBtn.textContent = '▶ Play Music';
+    });
+
+    // 按钮点击事件
+    musicBtn.addEventListener('click', function() {
+        if (isPlaying) {
+            bgm.pause();
+            musicBtn.textContent = '▶ Play Music';
+        } else {
+            bgm.play();
+            musicBtn.textContent = '⏸ Pause Music';
+        }
+        isPlaying = !isPlaying;
+    });
+});
+</script>
+
+</body>
+</html>

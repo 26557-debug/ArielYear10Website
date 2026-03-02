@@ -1,59 +1,66 @@
 <!DOCTYPE html>
 <html lang="zh-CN">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>渐入滚动页面示例</title>
-  <link rel="stylesheet" href="css/stylels.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Who am I?</title>
+    <!-- 引入主页的样式，确保导航栏样式一致 -->
+    <link rel="stylesheet" href="../style.css">
+    <!-- 专门为 who-am-i 页面添加的额外样式 -->
+    <link rel="stylesheet" href="../css/who-am-i.css">
 </head>
 <body>
 
-  <!-- 第一屏 section -->
-  <section class="section">
-    <div class="content">
-      <div class="text">
-        <h1>欢迎来到我的网站</h1>
-        <p>这是第一屏的文字内容，会在滚动时渐入出现。</p>
-      </div>
-      <div class="image">
-        <img src="https://picsum.photos/400/300" alt="示例图片">
-      </div>
+    <!-- 背景视频 (与主页相同) -->
+    <video id="bg-video" autoplay muted loop playsinline>
+        <source src="../images/背景视频.mp4" type="video/mp4">
+    </video>
+
+    <!-- 背景音乐 (与主页相同) -->
+    <audio id="bgm" loop>
+        <source src="../images/荒诞人生_M3mo.mp3" type="audio/mpeg">
+    </audio>
+    <button id="music-btn">▶ Play Music</button>
+
+    <!-- ===== 完整的导航栏 (与主页完全一致) ===== -->
+    <section class="topic-title">
+        <div class="tab-nav">
+            <button class="tab-btn" onclick="location.href='../index.html'">Home</button>
+            <button class="tab-btn" onclick="location.href='image-creation.html'">Image Creation</button>
+            <button class="tab-btn" onclick="location.href='website.html'">Website</button>
+            <button class="tab-btn" onclick="location.href='computer-science.html'">Computer Science</button>
+            <button class="tab-btn" onclick="location.href='programming.html'">Programming</button>
+            <button class="tab-btn" onclick="location.href='3d-modelling.html'">3D Modelling/Animation</button>
+            <button class="tab-btn" onclick="location.href='audio-visual.html'">D4M/Audio Visual</button>
+            <button class="tab-btn" onclick="location.href='video-game.html'">Video Game</button>
+        </div>
+    </section>
+
+    <!-- ===== Who am I 页面专属内容 ===== -->
+    <div class="who-container">
+
+
+        <!-- 分类标签 (Who am I? / My Hobbies / My Masterpiece) -->
+        <div class="who-categories">
+            <span class="category-btn active" onclick="switchWhoPage('who')">Who am I?</span>
+            <span class="category-btn" onclick="switchWhoPage('hobbies')">My Hobbies</span>
+            <span class="category-btn" onclick="switchWhoPage('masterpiece')">My Masterpiece</span>
+        </div>
+
+        <!-- 动态内容区域 (用于切换 Who/ Hobbies/ Masterpiece) -->
+        <div id="who-dynamic-content" class="who-dynamic-content">
+            <!-- 默认显示 Who am I 内容 -->
+        </div>
     </div>
-  </section>
 
-  <!-- 第二屏 section -->
-  <section class="section">
-    <div class="content">
-      <div class="text">
-        <h1>第二屏内容</h1>
-        <p>文字和图片都会有渐入动画效果，非常炫酷。</p>
-      </div>
-      <div class="image">
-        <img src="https://picsum.photos/400/300?2" alt="示例图片2">
-      </div>
-    </div>
-  </section>
+    <!-- 页脚 (与主页相同) -->
+    <footer class="footer">
+        <p>&copy; 2026 My Showcase Website By Ariel Yang</p>
+    </footer>
 
-<script>
-  // 获取所有要渐入的内容
-const contents = document.querySelectorAll('.content');
-
-// 创建 IntersectionObserver 监听滚动
-const observer = new IntersectionObserver((entries, observer) => {
-  entries.forEach(entry => {
-    if(entry.isIntersecting){
-      entry.target.classList.add('visible'); // 添加类触发 CSS 动画
-      observer.unobserve(entry.target); // 动画只触发一次
-    }
-  });
-}, { threshold: 0.2 }); // 元素至少20%出现才触发
-
-// 观察每个 content
-contents.forEach(content => {
-  observer.observe(content);
-});
-</script>
-
-  <script src="script.js"></script>
+    <!-- 音乐播放器 JS (与主页相同) -->
+    <script src="../js/music-player.js"></script>
+    <!-- Who am I 页面专属 JS -->
+    <script src="../js/who-am-i.js"></script>
 </body>
 </html>

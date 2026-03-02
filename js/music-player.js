@@ -20,7 +20,7 @@ function initGlobalMusic() {
     console.log('找到音乐元素，初始化播放器');
     
     // 从localStorage读取上次的播放状态
-    const musicState = JSON.parse(localStorage.getItem('globalMusicState')) || {
+    const musicState = JSON.parse(sessionStorage.getItem('globalMusicState')) || {
         isPlaying: false,
         currentTime: 0,
         volume: 0.7
@@ -92,7 +92,7 @@ function saveMusicState(bgm, isPlaying = null) {
         currentTime: bgm.currentTime,
         volume: bgm.volume
     };
-    localStorage.setItem('globalMusicState', JSON.stringify(state));
+    sessionStorage.setItem('globalMusicState', JSON.stringify(state));
 }
 
 // 更新按钮文字

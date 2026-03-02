@@ -66,6 +66,7 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 });
 </script>
+
 <div id="main-content">
 
   <!-- 背景视频 -->
@@ -74,16 +75,15 @@ document.addEventListener("DOMContentLoaded", () => {
   </video>
 
   <!-- Hero Section -->
-<section class="video-hero" id="videoHero">
+  <section class="video-hero" id="videoHero">
     <video id="curtain-video" autoplay muted playsinline>
-        <!-- 注意：这里使用和开场视频一样的路径格式 -->
         <source src="images/开幕video.MOV" type="video/mp4">
     </video>
-    <!-- 幕布遮罩层（实现从上往下渐变） -->
+    <!-- 幕布遮罩层 -->
     <div class="curtain-overlay"></div>
     <!-- 向下滚动提示箭头 -->
     <div class="scroll-hint" onclick="scrollToContent()">↓</div>
-</section>
+  </section>
 
   <!-- 飘落的叶子 -->
   <div class="leaves">
@@ -96,154 +96,144 @@ document.addEventListener("DOMContentLoaded", () => {
   </audio>
   <button id="music-btn">▶ Play Music</button>
 
-   <!-- 导航栏 (所有页面共用，注意修改active按钮) -->
-     <section class="topic">
-        <div class="topic-title">
-            <div class="tab-nav">
-                <button class="tab-btn active" onclick="location.href='../index.html'">Home</button>
-                <button class="tab-btn" onclick="location.href='html/image-creation.html'">Image Creation</button>
-                <button class="tab-btn" onclick="location.href='html/website.html'">Website</button>
-                <button class="tab-btn" onclick="location.href='html/computer-science.html'">Computer Science</button>
-                <button class="tab-btn" onclick="location.href='html/programming.html'">Programming</button>
-                <button class="tab-btn" onclick="location.href='html/3d-modelling.html'">3D Modelling/Animation</button>
-                <button class="tab-btn" onclick="location.href='html/audio-visual.html'">D4M/Audio Visual</button>
-                <button class="tab-btn" onclick="location.href='html/video-game.html'">Video Game</button>
+  <!-- 导航栏 (所有页面共用，注意修改active按钮) -->
+  <section class="topic">
+    <div class="topic-title">
+      <div class="tab-nav">
+        <button class="tab-btn active" onclick="location.href='index.html'">Home</button>
+        <button class="tab-btn" onclick="location.href='html/image-creation.html'">Image Creation</button>
+        <button class="tab-btn" onclick="location.href='html/website.html'">Website</button>
+        <button class="tab-btn" onclick="location.href='html/computer-science.html'">Computer Science</button>
+        <button class="tab-btn" onclick="location.href='html/programming.html'">Programming</button>
+        <button class="tab-btn" onclick="location.href='html/3d-modelling.html'">3D Modelling/Animation</button>
+        <button class="tab-btn" onclick="location.href='html/audio-visual.html'">D4M/Audio Visual</button>
+        <button class="tab-btn" onclick="location.href='html/video-game.html'">Video Game</button>
+      </div>
+    </div>
+
+    <!-- ===== 页面专属内容 ===== -->
+    <div class="index-container">
+      
+      <!-- 头部区域 -->
+      <div class="ic-header">
+        <h1 class="ic-title">Home Page</h1>
+        <p class="ic-subtitle">Welcome to my Website!!</p>
+      </div>
+
+      <!-- 分类标签 -->
+      <div class="ic-categories">
+        <span class="category active">おれは人间をやめるぞ！ ジョジョ──ッ！！</span>
+      </div>
+
+      <!-- 作品画廊 -->
+      <div class="ic-gallery">
+        <!-- 作品卡片 1 -->
+        <div class="art-card" onclick="location.href='html/who-am-i.html';" style="cursor: pointer;">
+          <div class="art-image">
+            <img src="images/视奸.png" alt="who-am-I.html">
+          </div>
+          <div class="art-info">
+            <h3>Who am I?</h3>
+            <p class="art-date">?/?/2026</p>
+            <p class="art-description">Let's start to get to know me!!</p>
+            <div class="art-tags">
+              <span>Self-introduction</span>
             </div>
+          </div>
         </div>
 
-
-        <!-- ===== 页面专属内容 ===== -->
-        <!-- 从这里开始每个页面写不同的内容，但类名可以沿用或新建 -->
-        <div class="index-container">  <!-- 可以沿用这个类名，或者改成对应页面的类名 -->
-            
-            <!-- 头部区域 (修改标题和副标题) -->
-            <div class="ic-header">
-                <h1 class="ic-title">Home Page</h1>  <!-- 修改标题 -->
-                <p class="ic-subtitle">Welcome to my Website!!</p>  <!-- 修改副标题 -->
-            </div>
-
-            <!-- 分类标签 (可以修改成对应页面的分类) -->
-            <div class="ic-categories">
-                <span class="category active">おれは人间をやめるぞ！ ジョジョ──ッ！！</span>
-              
-            </div>
-
-            <!-- 作品画廊 -->
-<div class="ic-gallery">
-    <!-- 作品卡片 1 -->
-    <div class="art-card" onclick="location.href='html/who-am-i.html';" style="cursor: pointer;">
-    <div class="art-image">
-        <img src="images/视奸.png" alt="who-am-I.html">
-    </div>
-    <div class="art-info">
-        <h3>Who am I?</h3>
-        <p class="art-date">?/?/2026</p>
-        <p class="art-description">Let's start to get to know me!!</p>
-        <div class="art-tags">
-            <span>Self-introduction</span>
-        </div>
-    </div>
-</div>
-
-    <!-- 作品卡片 2 -->
-   <div class="art-card" onclick="location.href='html/my-hobbies.html';" style="cursor: pointer;">
-    <div class="art-image">
+        <!-- 作品卡片 2 -->
+        <div class="art-card" onclick="location.href='html/my-hobbies.html';" style="cursor: pointer;">
+          <div class="art-image">
             <img src="images/视奸.png" alt="my-hobbies.html">
-        </div>
-        <div class="art-info">
+          </div>
+          <div class="art-info">
             <h3>My Hobbies</h3>
             <p class="art-date">？/？/2026</p>
             <p class="art-description">Let's see what I like to do.</p>
             <div class="art-tags">
-                <span>hobbies</span>
+              <span>hobbies</span>
             </div>
+          </div>
         </div>
-    </div>
 
-    <!-- 作品卡片 3 -->
-   <div class="art-card" onclick="location.href='html/my- masterpieces.html';" style="cursor: pointer;">
-    <div class="art-image">
+        <!-- 作品卡片 3 -->
+        <div class="art-card" onclick="location.href='html/my-masterpieces.html';" style="cursor: pointer;">
+          <div class="art-image">
             <img src="images/视奸.png" alt="my-masterpiece.html">
-        </div>
-        <div class="art-info">
+          </div>
+          <div class="art-info">
             <h3>My Masterpiece</h3>
             <p class="art-date">？/？/2026</p>
             <p class="art-description">Let's see my works that I'm very proud at it...</p>
             <div class="art-tags">
-                <span>power points</span>
-                <span>posters</span>
-                <span>drawings/paintings</span>
-                <span>photographs</span>
-                <span>Baking works</span>
-                <span>cosplay</span>
+              <span>power points</span>
+              <span>posters</span>
+              <span>drawings/paintings</span>
+              <span>photographs</span>
+              <span>Baking works</span>
+              <span>cosplay</span>
             </div>
+          </div>
         </div>
-    </div>
-</div> <!-- ic-gallery 正确关闭 -->
+      </div> <!-- ic-gallery 结束 -->
 
-            <!-- 工具区 (修改成对应页面的工具) -->
-            <div class="ic-tools">
-                <h2>My Website Tools</h2>
-                <div class="tools-grid">
-                    <div class="tool-item">
-                        <span class="tool-icon">🌐</span>
-                        <span>HTML5</span>
-                    </div>
-                    <div class="tool-item">
-                        <span class="tool-icon">🎨</span>
-                        <span>CSS3</span>
-                    </div>
-                    <div class="tool-item">
-                        <span class="tool-icon">⚡</span>
-                        <span>JavaScript</span>
-                    </div>
-                    <div class="tool-item">
-                        <span class="tool-icon">⚛️</span>
-                        <span>React</span>
-                    </div>
-                </div>
-            </div>
+      <!-- 工具区 -->
+      <div class="ic-tools">
+        <h2>My Website Tools</h2>
+        <div class="tools-grid">
+          <div class="tool-item">
+            <span class="tool-icon">🌐</span>
+            <span>HTML5</span>
+          </div>
+          <div class="tool-item">
+            <span class="tool-icon">🎨</span>
+            <span>CSS3</span>
+          </div>
+          <div class="tool-item">
+            <span class="tool-icon">⚡</span>
+            <span>JavaScript</span>
+          </div>
+          <div class="tool-item">
+            <span class="tool-icon">⚛️</span>
+            <span>React</span>
+          </div>
         </div>
-    </section>
+      </div>
+    </div> <!-- index-container 结束 -->
+  </section> <!-- topic 结束 -->
 
-</div> <!-- main-content end -->
+</div> <!-- main-content 结束 -->
 
 <footer class="footer">
   <p>&copy; 2026 My Showcase Website By Ariel Yang</p>
 </footer>
 
 <script>
-    // ===== 幕布视频控制 =====
-    const curtainVideo = document.getElementById('curtain-video');
-    
-    // 确保视频播放并停在最后一帧
-    curtainVideo.addEventListener('ended', function() {
-        // 视频结束后，移除muted属性（如果需要声音最后一帧）
-        // curtainVideo.muted = false; // 如果需要声音取消注释
-    });
+// ===== 幕布视频控制 =====
+const curtainVideo = document.getElementById('curtain-video');
 
-    // 向下滚动到内容区域的函数
-    function scrollToContent() {
-        const topicSection = document.querySelector('.topic');
-        topicSection.scrollIntoView({ behavior: 'smooth' });
+// 向下滚动到内容区域的函数
+function scrollToContent() {
+    const topicSection = document.querySelector('.topic');
+    topicSection.scrollIntoView({ behavior: 'smooth' });
+}
+
+// 可选：按任意键或点击屏幕也可以向下滚动
+document.addEventListener('keydown', function(event) {
+    if (event.key === 'ArrowDown' || event.code === 'Space') {
+        event.preventDefault();
+        scrollToContent();
     }
+});
 
-    // 可选：按任意键或点击屏幕也可以向下滚动
-    document.addEventListener('keydown', function(event) {
-        if (event.key === 'ArrowDown' || event.code === 'Space') {
-            event.preventDefault();
-            scrollToContent();
-        }
-    });
+document.addEventListener('click', function() {
+    if (!curtainVideo.ended) {
+        scrollToContent();
+    }
+});
 
-    document.addEventListener('click', function() {
-        // 如果视频还没结束，点击屏幕就向下滚动
-        if (!curtainVideo.ended) {
-            scrollToContent();
-        }
-    });
-
-    // ===== 版权弹窗控制 - 超级保险版本 =====
+// ===== 版权弹窗控制 =====
 const introVideo = document.getElementById("intro-video");
 const copyrightPopup = document.getElementById("copyright-popup");
 
@@ -270,7 +260,6 @@ const mainContent = document.getElementById("main-content");
 const observer = new MutationObserver(function() {
     if (mainContent.style.display === "block") {
         console.log("主内容显示，可能是跳过了视频");
-        // 给主内容一点加载时间
         setTimeout(showPopup, 500);
     }
 });
@@ -287,7 +276,8 @@ function closeCopyrightPopup() {
 // 复制邮箱功能
 function copyEmail() {
     alert("Email: 26557@burnside.school.nz");
-}</script>
+}
+</script>
 
 <script src="js/music-player.js"></script>
 
