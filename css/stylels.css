@@ -1,165 +1,45 @@
-、/* style.css — 完全分离的样式文件 */
-
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+/* 全局样式 */
+body, html {
+  margin: 0;
+  padding: 0;
+  scroll-behavior: smooth; /* 平滑滚动 */
+  font-family: Arial, sans-serif;
 }
 
-body {
-    font-family: 'Segoe UI', Roboto, system-ui, sans-serif;
-    background: #f5f7fb;
-    color: #1e2b3c;
-    display: flex;
-    flex-direction: column;
-    height: 100vh;           /* 全视口高度 */
-    overflow: hidden;         /* 阻止body滚动，让内部滚动 */
+/* 每个section占满屏幕高度 */
+.section {
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+  background-color: #f5f5f5;
 }
 
-/* ----- 导航栏样式 (带下划线效果) ----- */
-.slide-nav {
-    background: white;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
-    padding: 0.2rem 1rem;
-    flex-shrink: 0;           /* 防止被压缩 */
-    border-bottom: 1px solid #e2e8f0;
+/* 内容布局：左右分栏 */
+.content {
+  display: flex;
+  align-items: center;
+  gap: 50px;
+  opacity: 0; /* 初始隐藏 */
+  transform: translateY(50px); /* 初始下移 */
+  transition: opacity 1s ease, transform 1s ease;
 }
 
-.slide-nav ul {
-    display: flex;
-    flex-wrap: nowrap;
-    gap: 0.5rem 1.2rem;
-    list-style: none;
-    overflow-x: auto;         /* 太窄时可横向滑动，但通常够用 */
-    padding: 0.6rem 0.2rem;
-    scrollbar-width: thin;
-    justify-content: center;  /* 居中 (可选，改为flex-start靠左) */
+/* 可视时显示 */
+.content.visible {
+  opacity: 1;
+  transform: translateY(0);
 }
 
-/* 让ul在小屏上靠左比较自然 */
-@media (max-width: 800px) {
-    .slide-nav ul {
-        justify-content: flex-start;
-    }
+/* 文本样式 */
+.text {
+  max-width: 500px;
 }
 
-.slide-nav ul::-webkit-scrollbar {
-    height: 4px;
-}
-.slide-nav ul::-webkit-scrollbar-thumb {
-    background: #b3c5d7;
-    border-radius: 8px;
-}
-
-.slide-nav a {
-    text-decoration: none;
-    color: #2c3e50;
-    font-weight: 550;
-    padding: 0.5rem 0.2rem;
-    white-space: nowrap;
-    position: relative;
-    transition: color 0.2s;
-    font-size: 1.05rem;
-}
-
-/* 下划线动画 (默认透明，悬停+active时显示) */
-.slide-nav a::after {
-    content: '';
-    position: absolute;
-    bottom: -2px;
-    left: 0;
-    width: 100%;
-    height: 3px;
-    background: #3a7ca5;      /* 深蓝色下划线 */
-    transform: scaleX(0);
-    transition: transform 0.2s ease;
-    border-radius: 3px;
-}
-
-.slide-nav a:hover::after,
-.slide-nav a.active::after {   /* active类对应当前可见区域 */
-    transform: scaleX(1);
-}
-
-.slide-nav a:hover,
-.slide-nav a.active {
-    color: #1e4b6e;
-}
-
-/* ----- 可上下滑动的主内容区域 ----- */
-.scroll-content {
-    flex: 1 1 auto;           /* 填充剩余高度 */
-    overflow-y: scroll;       /* 关键: 纵向滑动 */
-    scroll-behavior: smooth;  /* 平滑滑动 (点击跳转时) */
-    padding: 1.5rem 2rem;
-    background: #f0f4fa;
-    scroll-padding: 1rem;     /* 避免标题紧贴顶部 */
-}
-
-/* 卡片式 section */
-.card-section {
-    background: white;
-    border-radius: 28px;
-    padding: 2rem 2rem;
-    margin-bottom: 2rem;
-    box-shadow: 0 8px 24px rgba(0, 30, 50, 0.08);
-    border: 1px solid rgba(255, 255, 255, 0.6);
-    scroll-margin-top: 20px;   /* 点击跳转后与顶部距离 */
-}
-
-.card-section h2 {
-    font-size: 2rem;
-    font-weight: 600;
-    margin-bottom: 1.25rem;
-    color: #0f2b3d;
-    border-left: 6px solid #3a7ca5;
-    padding-left: 1.2rem;
-}
-
-.task-box {
-    background: #f2f8ff;
-    padding: 1.5rem;
-    border-radius: 20px;
-    margin-top: 1rem;
-    border: 1px solid #dde9f5;
-}
-
-.task-box h3 {
-    color: #1f4a7a;
-    margin-bottom: 1rem;
-    font-size: 1.5rem;
-}
-
-.task-box p {
-    margin-bottom: 1rem;
-    line-height: 1.6;
-    color: #253c54;
-}
-
-.card-section p {
-    line-height: 1.6;
-    font-size: 1.1rem;
-    max-width: 720px;
-}
-
-.extra-space {
-    height: 40vh;             /* 多些空间感受滑动 */
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    color: #a2bbd1;
-    font-style: italic;
-}
-
-/* 小屏适配 */
-@media (max-width: 600px) {
-    .scroll-content {
-        padding: 1rem;
-    }
-    .card-section {
-        padding: 1.5rem 1.2rem;
-    }
-    .card-section h2 {
-        font-size: 1.8rem;
-    }
+/* 图片样式 */
+.image img {
+  width: 400px;
+  border-radius: 10px;
+  object-fit: cover;
 }
