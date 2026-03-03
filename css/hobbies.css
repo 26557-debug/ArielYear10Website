@@ -1,0 +1,401 @@
+/* ===== hobbies.css ===== */
+/* Hobbies页面的专属样式 */
+
+/* 进入特效 - 恢复slideInRight动画 */
+@keyframes slideInRight {
+    from {
+        opacity: 0;
+        transform: translateX(50px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+.hobbies-container {
+    max-width: 1300px;
+    margin: 0 auto;
+    padding: 20px 30px 50px;
+    min-height: 70vh;
+    position: relative;
+    animation: slideInRight 0.6s ease forwards;
+}
+
+/* ===== 分类标签 ===== */
+.hobbies-categories {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    margin: 30px 0 20px;
+    flex-wrap: wrap;
+}
+
+.category-btn {
+    padding: 12px 35px;
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 40px;
+    color: white;
+    font-size: 18px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.4s ease;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+}
+
+.category-btn:hover {
+    background: rgba(255, 215, 0, 0.25);
+    transform: translateY(-3px);
+    border-color: #ffd966;
+    box-shadow: 0 8px 25px rgba(255, 215, 0, 0.2);
+}
+
+.category-btn.active {
+    background: #ffd966;
+    color: #333;
+    border-color: #ffd966;
+    font-weight: bold;
+    box-shadow: 0 8px 25px rgba(255, 215, 0, 0.4);
+}
+
+/* ===== 标题区域 - 类似Masterpiece风格 ===== */
+.hobbies-header {
+    text-align: center;
+    margin: 20px 0 30px;
+    padding: 20px;
+    background: rgba(0, 0, 0, 0.3);
+    backdrop-filter: blur(5px);
+    border-radius: 60px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.hobbies-title {
+    font-size: 3.5em;
+    color: #ffd966;
+    font-family: 'Impact', 'Arial Black', sans-serif;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+    margin-bottom: 10px;
+    letter-spacing: 2px;
+}
+
+.hobbies-subtitle {
+    font-size: 1.2em;
+    color: rgba(255, 255, 255, 0.8);
+    font-style: italic;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+}
+
+/* ===== 左右滑动主内容区域 - 卡片露出两边 ===== */
+.main-content-slider {
+    width: 100%;
+    overflow: hidden;
+    margin: 30px 0;
+    position: relative;
+    padding: 20px 0;
+}
+
+.slider-container {
+    width: 100%;
+    overflow: visible;
+}
+
+.slider-wrapper {
+    display: flex;
+    transition: transform 0.5s ease;
+    gap: 30px;
+    padding: 0 calc(50% - 400px); /* 这个让两边卡片露出 */
+    width: max-content; /* 改为max-content而不是固定百分比 */
+}
+/* 卡片样式 - 正方形，圆角 */
+.hobby-card {
+   flex: 0 0 800px; /* 固定宽度 */
+    height: 800px;
+    /* 其他样式保持不变 */
+    background: rgba(0, 0, 0, 0.7);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    border-radius: 30px; /* 保持圆角 */
+    padding: 40px;
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.5);
+    color: white;
+    transition: all 0.3s ease;
+    box-sizing: border-box;
+    display: flex;
+    align-items: center;
+    cursor: pointer; /* 提示可点击 */
+}
+
+.hobby-card:hover {
+    border-color: rgba(255, 215, 0, 0.4);
+    box-shadow: 0 20px 45px rgba(255, 215, 0, 0.2);
+    transform: scale(1.02);
+}
+
+/* 被选中的卡片样式 */
+.hobby-card.active {
+    border: 3px solid #ffd966;
+    box-shadow: 0 0 30px rgba(255, 215, 0, 0.5);
+}
+
+.hobby-content {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.hobby-content h2 {
+    color: #ffd966;
+    font-size: 3em;
+    margin-bottom: 25px;
+    font-family: 'Impact', 'Arial Black', sans-serif;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+.hobby-description {
+    font-size: 1.3em;
+    line-height: 1.8;
+    margin-bottom: 30px;
+    color: rgba(255, 255, 255, 0.9);
+    flex-grow: 1;
+}
+
+.hobby-details {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 15px;
+    margin-top: auto;
+}
+
+.hobby-tag {
+    padding: 8px 25px;
+    background: rgba(255, 215, 0, 0.15);
+    border-radius: 30px;
+    color: #ffd966;
+    font-size: 1.1em;
+    border: 1px solid rgba(255, 215, 0, 0.2);
+    backdrop-filter: blur(5px);
+}
+
+/* ===== 小圆点指示器 ===== */
+.dot-indicators {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    margin: 30px 0 40px;
+}
+
+.dot {
+    width: 14px;
+    height: 14px;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.3);
+    border: 2px solid rgba(255, 255, 255, 0.5);
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.dot:hover {
+    background: rgba(255, 215, 0, 0.5);
+    transform: scale(1.2);
+}
+
+.dot.active {
+    background: #ffd966;
+    border-color: #ffd966;
+    transform: scale(1.3);
+    box-shadow: 0 0 15px #ffd966;
+}
+
+/* ===== 下方图片画廊 ===== */
+.hobbies-gallery {
+    width: 100%;
+    overflow-x: auto;
+    overflow-y: hidden;
+    margin: 20px 0 15px;
+    padding: 10px 0 20px;
+    scrollbar-width: thin;
+    scrollbar-color: #ffd966 rgba(255, 255, 255, 0.1);
+    -webkit-overflow-scrolling: touch;
+}
+
+/* 自定义滚动条 */
+.hobbies-gallery::-webkit-scrollbar {
+    height: 8px;
+}
+
+.hobbies-gallery::-webkit-scrollbar-track {
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 10px;
+}
+
+.hobbies-gallery::-webkit-scrollbar-thumb {
+    background: #ffd966;
+    border-radius: 10px;
+}
+
+.hobbies-gallery::-webkit-scrollbar-thumb:hover {
+    background: #ffd700;
+}
+
+.gallery-slider {
+    width: 100%;
+}
+
+.gallery-wrapper {
+    display: flex;
+    gap: 20px;
+    width: max-content;
+    padding: 5px 5px 10px 5px;
+}
+
+.gallery-item {
+    flex: 0 0 220px;
+    height: 220px;
+    border-radius: 20px;
+    overflow: hidden;
+    border: 3px solid rgba(255, 215, 0, 0.3);
+    transition: all 0.3s ease;
+    background: rgba(0, 0, 0, 0.5);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
+    cursor: pointer;
+}
+
+.gallery-item:hover {
+    transform: translateY(-5px) scale(1.02);
+    border-color: #ffd966;
+    box-shadow: 0 15px 35px rgba(255, 215, 0, 0.3);
+}
+
+.gallery-item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    transition: transform 0.5s;
+}
+
+.gallery-item:hover img {
+    transform: scale(1.1);
+}
+
+.gallery-item.active {
+    border-color: #ffd966;
+    border-width: 4px;
+    box-shadow: 0 0 30px rgba(255, 215, 0, 0.5);
+}
+
+/* 画廊提示文字 */
+.gallery-hint {
+    text-align: center;
+    color: rgba(255, 255, 255, 0.6);
+    font-size: 1.1em;
+    margin-top: 15px;
+    font-style: italic;
+    letter-spacing: 1px;
+}
+
+.gallery-hint span {
+    background: rgba(0, 0, 0, 0.4);
+    backdrop-filter: blur(5px);
+    padding: 8px 25px;
+    border-radius: 50px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+/* ===== 响应式设计 ===== */
+@media (max-width: 1200px) {
+    .hobby-card {
+        flex: 0 0 600px;
+        height: 600px;
+        padding: 30px;
+    }
+    
+    .hobby-content h2 {
+        font-size: 2.5em;
+    }
+    
+    .hobby-description {
+        font-size: 1.1em;
+    }
+}
+
+@media (max-width: 768px) {
+    .hobby-card {
+        flex: 0 0 450px;
+        height: 450px;
+        padding: 25px;
+    }
+    
+    .hobby-content h2 {
+        font-size: 2em;
+    }
+    
+    .hobby-description {
+        font-size: 1em;
+        line-height: 1.6;
+    }
+    
+    .hobby-tag {
+        padding: 6px 18px;
+        font-size: 0.9em;
+    }
+    
+    .hobbies-title {
+        font-size: 2.5em;
+    }
+    
+    .hobbies-subtitle {
+        font-size: 1em;
+    }
+    
+    .category-btn {
+        padding: 10px 25px;
+        font-size: 16px;
+    }
+    
+    .gallery-item {
+        flex: 0 0 150px;
+        height: 150px;
+    }
+}
+
+@media (max-width: 480px) {
+    .hobby-card {
+        flex: 0 0 300px;
+        height: 300px;
+        padding: 20px;
+    }
+    
+    .hobby-content h2 {
+        font-size: 1.6em;
+        margin-bottom: 15px;
+    }
+    
+    .hobby-description {
+        font-size: 0.9em;
+        line-height: 1.5;
+    }
+    
+    .hobby-tag {
+        padding: 4px 12px;
+        font-size: 0.8em;
+    }
+    
+    .gallery-item {
+        flex: 0 0 120px;
+        height: 120px;
+    }
+    
+    .gallery-hint {
+        font-size: 0.9em;
+    }
+    
+    .dot {
+        width: 10px;
+        height: 10px;
+    }
+}

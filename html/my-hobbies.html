@@ -3,25 +3,24 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>My Hobbies</title>
+    <title>My Hobbies - 左右滑动展示</title>
     <link rel="stylesheet" href="../style.css">
-    <!-- 专门为 who-am-i 页面添加的额外样式 -->
-    <link rel="stylesheet" href="../css/who-am-i.css">
+    <link rel="stylesheet" href="../css/hobbies.css">
 </head>
 <body>
 
-    <!-- 背景视频 (与主页相同) -->
+    <!-- 背景视频 -->
     <video id="bg-video" autoplay muted loop playsinline>
         <source src="../images/背景视频.mp4" type="video/mp4">
     </video>
 
-    <!-- 背景音乐 (与主页相同) -->
+    <!-- 背景音乐 -->
     <audio id="bgm" loop>
         <source src="../images/荒诞人生_M3mo.mp3" type="audio/mpeg">
     </audio>
     <button id="music-btn">▶ Play Music</button>
 
-    <!-- ===== 完整的导航栏 (与主页完全一致) ===== -->
+   <!-- 导航栏 -->
     <section class="topic-title">
         <div class="tab-nav">
             <button class="tab-btn" onclick="location.href='../index.html'">Home</button>
@@ -35,37 +34,199 @@
         </div>
     </section>
 
-     <!-- ⬅️ 返回Homepage的箭头 (放在导航栏下面，分类标签上面) -->
-    <div class="back-to-home" onclick="location.href='../index.html'">
+    <!-- 返回Homepage的箭头 -->
+    <div class="back-to-home" onclick="location.href='index.html'">
         <span class="arrow-icon">←</span> Back to Home
     </div>
 
-    <!-- ===== Who am I 页面专属内容 ===== -->
-    <div class="who-container">
-
-        <!-- 分类标签 (Who am I? / My Hobbies / My Masterpiece) -->
-        <div class="who-categories">
-            <span class="category-btn" onclick="switchWhoPage('who')">Who am I?</span>
-            <span class="category-btn active" onclick="switchWhoPage('hobbies')">My Hobbies</span>
-            <!-- Masterpiece 永远跳转到独立页面 -->
+    <!-- Hobbies页面主要内容 -->
+    <div class="hobbies-container">
+        
+        <!-- 分类标签 -->
+        <div class="hobbies-categories">
+            <span class="category-btn" onclick="switchCategory('who')">Who am I?</span>
+            <span class="category-btn active" onclick="location.href='../html/my-hobbies.html'">My Hobbies</span>
             <span class="category-btn" onclick="location.href='../html/my-masterpieces.html'">My Masterpiece</span>
-        </div> <!-- 这里原来缺少这个关闭标签！ -->
-
-        <!-- 动态内容区域 (用于切换 Who/ Hobbies) -->
-        <div id="who-dynamic-content" class="who-dynamic-content">
-            <!-- 默认显示 My Hobbies 内容 -->
         </div>
 
-    </div> <!-- 关闭 who-container -->
+        <!-- 标题区域 - 类似Masterpiece的样式 -->
+        <div class="hobbies-header">
+            <h1 class="hobbies-title">My Hobbies</h1>
+            <p class="hobbies-subtitle">??/??/2026 - Let's see what I like to do in my free time!</p>
+        </div>
 
-    <!-- 页脚 (与主页相同) -->
+        <!-- 左右滑动的主内容区域 - 卡片露出两边 -->
+        <div class="main-content-slider" id="mainContentSlider">
+            <div class="slider-container">
+                <div class="slider-wrapper" id="sliderWrapper">
+                    <!-- Hobby 1 - 绘画 -->
+                    <div class="hobby-card" data-hobby-id="1">
+                        <div class="hobby-content">
+                            <h2>🎨 绘画</h2>
+                            <p class="hobby-description">
+                                我喜欢用画笔记录生活中的美好瞬间。无论是水彩的温柔，还是素描的细腻，都能让我沉浸在自己的小世界里。绘画是我表达情感的方式，也是我放松心情的最佳途径。
+                            </p>
+                            <div class="hobby-details">
+                                <span class="hobby-tag">#水彩</span>
+                                <span class="hobby-tag">#素描</span>
+                                <span class="hobby-tag">#插画</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Hobby 2 - 摄影 -->
+                    <div class="hobby-card" data-hobby-id="2">
+                        <div class="hobby-content">
+                            <h2>📷 摄影</h2>
+                            <p class="hobby-description">
+                                通过镜头捕捉光影的变幻，记录城市的角落和大自然的壮丽。每一次按下快门，都是对美的致敬。我喜欢在清晨和黄昏时分外出拍摄，捕捉一天中最美的光线。
+                            </p>
+                            <div class="hobby-details">
+                                <span class="hobby-tag">#人像</span>
+                                <span class="hobby-tag">#风光</span>
+                                <span class="hobby-tag">#街拍</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Hobby 3 - 音乐 -->
+                    <div class="hobby-card" data-hobby-id="3">
+                        <div class="hobby-content">
+                            <h2>🎵 音乐</h2>
+                            <p class="hobby-description">
+                                音乐是我生活中不可或缺的伙伴。从古典到流行，从民谣到电子，不同的旋律带给我不同的感受。我也会弹吉他和钢琴，用音乐表达内心的情绪。
+                            </p>
+                            <div class="hobby-details">
+                                <span class="hobby-tag">#吉他</span>
+                                <span class="hobby-tag">#钢琴</span>
+                                <span class="hobby-tag">#作曲</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Hobby 4 - 阅读 -->
+                    <div class="hobby-card" data-hobby-id="4">
+                        <div class="hobby-content">
+                            <h2>📚 阅读</h2>
+                            <p class="hobby-description">
+                                书籍是我通往不同世界的窗口。无论是小说、哲学还是科普，每一本书都能带给我新的思考和启发。我喜欢在周末的午后，泡一杯茶，静静地读一本好书。
+                            </p>
+                            <div class="hobby-details">
+                                <span class="hobby-tag">#小说</span>
+                                <span class="hobby-tag">#哲学</span>
+                                <span class="hobby-tag">#科幻</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Hobby 5 - 旅行 -->
+                    <div class="hobby-card" data-hobby-id="5">
+                        <div class="hobby-content">
+                            <h2>✈️ 旅行</h2>
+                            <p class="hobby-description">
+                                背上行囊，去探索未知的风景。旅行让我遇见不同的人，体验不同的文化，拓宽我的视野。每一次旅行都是一次自我发现的过程。
+                            </p>
+                            <div class="hobby-details">
+                                <span class="hobby-tag">#背包客</span>
+                                <span class="hobby-tag">#美食</span>
+                                <span class="hobby-tag">#探险</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Hobby 6 - 烹饪 -->
+                    <div class="hobby-card" data-hobby-id="6">
+                        <div class="hobby-content">
+                            <h2>🍳 烹饪</h2>
+                            <p class="hobby-description">
+                                在厨房里创造美味是一件充满乐趣的事情。从简单的家常菜到精致的甜点，我喜欢尝试各种食谱，并加入自己的创意。与朋友分享美食是最快乐的时光。
+                            </p>
+                            <div class="hobby-details">
+                                <span class="hobby-tag">#烘焙</span>
+                                <span class="hobby-tag">#中餐</span>
+                                <span class="hobby-tag">#西餐</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- 小圆点指示器 (代替左右箭头) -->
+        <div class="dot-indicators" id="dotIndicators">
+            <!-- 由JS动态生成 -->
+        </div>
+
+        <!-- 下方的图片滑动区域 -->
+        <div class="hobbies-gallery">
+            <div class="gallery-slider" id="gallerySlider">
+                <div class="gallery-wrapper" id="galleryWrapper">
+                    <!-- 绘画图片 -->
+                    <div class="gallery-item" data-hobby-id="1">
+                        <img src="../images/hobby-painting-1.jpg" alt="绘画作品1" onerror="this.src='../images/placeholder.jpg'">
+                    </div>
+                    <div class="gallery-item" data-hobby-id="1">
+                        <img src="../images/hobby-painting-2.jpg" alt="绘画作品2" onerror="this.src='../images/placeholder.jpg'">
+                    </div>
+                    
+                    <!-- 摄影图片 -->
+                    <div class="gallery-item" data-hobby-id="2">
+                        <img src="../images/hobby-photo-1.jpg" alt="摄影作品1" onerror="this.src='../images/placeholder.jpg'">
+                    </div>
+                    <div class="gallery-item" data-hobby-id="2">
+                        <img src="../images/hobby-photo-2.jpg" alt="摄影作品2" onerror="this.src='../images/placeholder.jpg'">
+                    </div>
+                    
+                    <!-- 音乐图片 -->
+                    <div class="gallery-item" data-hobby-id="3">
+                        <img src="../images/hobby-music-1.jpg" alt="音乐相关1" onerror="this.src='../images/placeholder.jpg'">
+                    </div>
+                    <div class="gallery-item" data-hobby-id="3">
+                        <img src="../images/hobby-music-2.jpg" alt="音乐相关2" onerror="this.src='../images/placeholder.jpg'">
+                    </div>
+                    
+                    <!-- 阅读图片 -->
+                    <div class="gallery-item" data-hobby-id="4">
+                        <img src="../images/hobby-reading-1.jpg" alt="阅读1" onerror="this.src='../images/placeholder.jpg'">
+                    </div>
+                    <div class="gallery-item" data-hobby-id="4">
+                        <img src="../images/hobby-reading-2.jpg" alt="阅读2" onerror="this.src='../images/placeholder.jpg'">
+                    </div>
+                    
+                    <!-- 旅行图片 -->
+                    <div class="gallery-item" data-hobby-id="5">
+                        <img src="../images/hobby-travel-1.jpg" alt="旅行1" onerror="this.src='../images/placeholder.jpg'">
+                    </div>
+                    <div class="gallery-item" data-hobby-id="5">
+                        <img src="../images/hobby-travel-2.jpg" alt="旅行2" onerror="this.src='../images/placeholder.jpg'">
+                    </div>
+                    
+                    <!-- 烹饪图片 -->
+                    <div class="gallery-item" data-hobby-id="6">
+                        <img src="../images/hobby-cooking-1.jpg" alt="烹饪1" onerror="this.src='../images/placeholder.jpg'">
+                    </div>
+                    <div class="gallery-item" data-hobby-id="6">
+                        <img src="../images/hobby-cooking-2.jpg" alt="烹饪2" onerror="this.src='../images/placeholder.jpg'">
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- 画廊滑动提示 -->
+        <div class="gallery-hint">
+            <span>← 左右滑动查看更多图片 →</span>
+        </div>
+
+    </div>
+
+    <!-- 页脚 -->
     <footer class="footer">
         <p>&copy; 2026 My Showcase Website By Ariel Yang</p>
     </footer>
 
-    <!-- 音乐播放器 JS (与主页相同) -->
+    <!-- 音乐播放器 JS -->
     <script src="../js/music-player.js"></script>
-    <!-- Who am I 页面专属 JS -->
-    <script src="../js/who-am-i.js"></script>
+    <!-- Hobbies页面专属 JS -->
+    <script src="../js/hobbies.js"></script>
 </body>
 </html>
