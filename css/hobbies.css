@@ -105,18 +105,18 @@
     display: flex;
     transition: transform 0.5s ease;
     gap: 30px;
-    padding: 0 calc(50% - 400px); /* 这个让两边卡片露出 */
-    width: max-content; /* 改为max-content而不是固定百分比 */
+    padding: 0 calc(50% - 400px);
+    width: max-content;
 }
-/* 卡片样式 - 正方形，圆角 */
+
+/* 卡片样式 */
 .hobby-card {
-   flex: 0 0 800px; /* 固定宽度 */
-    height: 800px;
-    /* 其他样式保持不变 */
+    flex: 0 0 800px;
+    height: 600px;
     background: rgba(0, 0, 0, 0.7);
     backdrop-filter: blur(10px);
     border: 1px solid rgba(255, 255, 255, 0.15);
-    border-radius: 30px; /* 保持圆角 */
+    border-radius: 30px;
     padding: 40px;
     box-shadow: 0 15px 35px rgba(0, 0, 0, 0.5);
     color: white;
@@ -124,7 +124,7 @@
     box-sizing: border-box;
     display: flex;
     align-items: center;
-    cursor: pointer; /* 提示可点击 */
+    cursor: pointer;
 }
 
 .hobby-card:hover {
@@ -133,41 +133,9 @@
     transform: scale(1.02);
 }
 
-/* 被选中的卡片样式 */
 .hobby-card.active {
     border: 3px solid #ffd966;
     box-shadow: 0 0 30px rgba(255, 215, 0, 0.5);
-}
-
-.hobby-content {
-    width: 100%;
-    height: 100%;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-}
-
-.hobby-content h2 {
-    color: #ffd966;
-    font-size: 3em;
-    margin-bottom: 25px;
-    font-family: 'Impact', 'Arial Black', sans-serif;
-    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
-}
-
-.hobby-description {
-    font-size: 1.3em;
-    line-height: 1.8;
-    margin-bottom: 30px;
-    color: rgba(255, 255, 255, 0.9);
-    flex-grow: 1;
-}
-
-.hobby-details {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 15px;
-    margin-top: auto;
 }
 
 .hobby-tag {
@@ -175,9 +143,89 @@
     background: rgba(255, 215, 0, 0.15);
     border-radius: 30px;
     color: #ffd966;
-    font-size: 1.1em;
+    font-size: 1.2em;
     border: 1px solid rgba(255, 215, 0, 0.2);
     backdrop-filter: blur(5px);
+    padding-top: 10px;
+}
+
+.back-to-home {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    cursor: pointer;
+    margin: 20px 0 20px 0;
+    padding: 10px 20px;
+    background: rgba(0, 0, 0, 0.4);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 40px;
+    color: white;
+    font-size: 16px;
+    font-weight: 500;
+    transition: all 0.3s ease;
+    width: fit-content;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+}
+
+.back-to-home:hover {
+    background: rgba(255, 215, 0, 0.25);
+    transform: translateX(-5px);
+    border-color: #ffd966;
+    box-shadow: 0 8px 25px rgba(255, 215, 0, 0.2);
+}
+
+/* ===== 卡片内左右布局 ===== */
+.hobby-image {
+    flex: 0 0 200px;
+    height: 500px;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.hobby-image img {
+    width: 100%;
+    height: 242.5px;
+    object-fit: cover;
+    border-radius: 20px;
+    border: 2px solid rgba(255, 215, 0, 0.3);
+    cursor: pointer;
+    transition: transform 0.3s ease;
+}
+
+.hobby-card:hover .hobby-image img {
+    transform: scale(1.05);
+}
+
+.hobby-text {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    height: 500px;
+    justify-content: flex-start;
+     padding-left: 20px;  
+    padding-right: 10px; 
+}
+
+.hobby-text h2 {
+    color: #ffd966;
+    font-size: 3.5em;  
+    margin-bottom: 25px;
+    flex-shrink: 0;
+    font-family: 'Impact', 'Arial Black', sans-serif;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+    letter-spacing: 1px;
+}
+
+.hobby-text .hobby-description {
+   font-size: 1.2em;
+    line-height: 1.7;
+    margin-bottom: 25px;
+    flex: 1;
+    overflow-y: auto;
+    color: rgba(255, 255, 255, 0.95); /* 稍微调亮一点 */
+    padding-right: 10px; /* 描述文字右边留空 */
 }
 
 /* ===== 小圆点指示器 ===== */
@@ -222,7 +270,6 @@
     -webkit-overflow-scrolling: touch;
 }
 
-/* 自定义滚动条 */
 .hobbies-gallery::-webkit-scrollbar {
     height: 8px;
 }
@@ -288,7 +335,6 @@
     box-shadow: 0 0 30px rgba(255, 215, 0, 0.5);
 }
 
-/* 画廊提示文字 */
 .gallery-hint {
     text-align: center;
     color: rgba(255, 255, 255, 0.6);
@@ -310,8 +356,21 @@
 @media (max-width: 1200px) {
     .hobby-card {
         flex: 0 0 600px;
-        height: 600px;
+        height: 500px;
         padding: 30px;
+    }
+    
+    .hobby-image {
+        flex: 0 0 160px;
+        height: 400px;
+    }
+    
+    .hobby-image img {
+        height: 192.5px;
+    }
+    
+    .hobby-text {
+        height: 400px;
     }
     
     .hobby-content h2 {
@@ -326,8 +385,25 @@
 @media (max-width: 768px) {
     .hobby-card {
         flex: 0 0 450px;
-        height: 450px;
+        height: auto;
+        min-height: 500px;
         padding: 25px;
+    }
+    
+    .hobby-content {
+        flex-direction: column;
+        gap: 20px;
+    }
+    
+    .hobby-image {
+        flex: 0 0 auto;
+        width: 200px;
+        height: 400px;
+    }
+    
+    .hobby-text {
+        height: auto;
+        width: 100%;
     }
     
     .hobby-content h2 {
@@ -336,7 +412,6 @@
     
     .hobby-description {
         font-size: 1em;
-        line-height: 1.6;
     }
     
     .hobby-tag {
@@ -366,8 +441,18 @@
 @media (max-width: 480px) {
     .hobby-card {
         flex: 0 0 300px;
-        height: 300px;
+        height: auto;
+        min-height: 400px;
         padding: 20px;
+    }
+    
+    .hobby-image {
+        width: 160px;
+        height: 320px;
+    }
+    
+    .hobby-image img {
+        height: 152.5px;
     }
     
     .hobby-content h2 {
