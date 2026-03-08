@@ -3,7 +3,7 @@
 
 // 当前选中的hobby索引 (0-based)
 let currentHobbyIndex = 0;
-const totalHobbies = 6; // 一共6个爱好
+const totalHobbies = 9; // 一共9个爱好
 
 // 获取DOM元素
 const sliderWrapper = document.getElementById('sliderWrapper');
