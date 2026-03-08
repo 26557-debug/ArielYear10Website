@@ -1,9 +1,10 @@
-/* ===== who-am-i.css ===== */
+/* ===== css/who-am-i.css ===== */
 
+/* 容器 */
 .who-container {
     max-width: 1200px;
     margin: 0 auto;
-    padding: 20px 30px 50px;
+    padding: 20px 30px 20px;
     min-height: 60vh;
 }
 
@@ -13,7 +14,7 @@
     align-items: center;
     gap: 8px;
     cursor: pointer;
-    margin: 20px 0 20px 0;
+    margin: 20px 0;
     padding: 10px 20px;
     background: rgba(0,0,0,0.4);
     backdrop-filter: blur(10px);
@@ -28,10 +29,10 @@
 }
 
 .back-to-home:hover {
-    background: rgba(255, 215, 0, 0.25);
+    background: rgba(255,215,0,0.25);
     transform: translateX(-5px);
     border-color: #ffd966;
-    box-shadow: 0 8px 25px rgba(255, 215, 0, 0.2);
+    box-shadow: 0 8px 25px rgba(255,215,0,0.2);
 }
 
 .arrow-icon {
@@ -44,22 +45,22 @@
     transform: translateX(-3px);
 }
 
-/* ===== Who am I 页面标题 ===== */
+/* 页面标题（仿 Masterpiece 样式） */
 .whoam-title {
     text-align: center;
-    margin: 20px 0 30px;
+    margin-bottom: 15px;
 }
 
 .whoam-title h2 {
     color: #ffd966;
     font-size: 3em;
     font-family: 'Impact', 'Arial Black', sans-serif;
-    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
     margin-bottom: 8px;
 }
 
 .whoam-title p {
-    color: rgba(255, 255, 255, 0.8);
+    color: rgba(255,255,255,0.8);
     font-size: 0.95em;
 }
 
@@ -68,7 +69,7 @@
     display: flex;
     justify-content: center;
     gap: 30px;
-    margin: 30px 0 50px;
+    margin: 0 0 20px 0;
     flex-wrap: wrap;
 }
 
@@ -87,10 +88,10 @@
 }
 
 .category-btn:hover {
-    background: rgba(255, 215, 0, 0.25);
+    background: rgba(255,215,0,0.25);
     transform: translateY(-3px);
     border-color: #ffd966;
-    box-shadow: 0 8px 25px rgba(255, 215, 0, 0.2);
+    box-shadow: 0 8px 25px rgba(255,215,0,0.2);
 }
 
 .category-btn.active {
@@ -98,10 +99,10 @@
     color: #333;
     border-color: #ffd966;
     font-weight: bold;
-    box-shadow: 0 8px 25px rgba(255, 215, 0, 0.4);
+    box-shadow: 0 8px 25px rgba(255,215,0,0.4);
 }
 
-/* ===== 滚动内容 ===== */
+/* 滚动内容容器 */
 .who-scroll-content {
     max-width: 1200px;
     margin: 0 auto;
@@ -113,75 +114,81 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    gap: 80px;
+    gap: 60px;               /* 图片和文字间距 */
     opacity: 0;
-    transform: translateY(80px);
+    transform: translateY(50px);
     transition: all 1s ease;
-    margin-bottom: 160px;
+    margin-bottom: 80px;      /* 缩短底部间距 */
     background: rgba(0,0,0,0.6);
-    padding: 60px;
+    padding: 40px;            /* 缩小内边距 */
     border-radius: 30px;
     backdrop-filter: blur(10px);
 }
 
-/* 图片 */
-.section-image img{
+/* 图片样式 */
+.section-image img {
     width: 420px;
     border-radius: 20px;
     box-shadow: 0 15px 40px rgba(0,0,0,0.6);
     transition: transform 0.5s;
 }
 
-.section-image img:hover{
+.section-image img:hover {
     transform: scale(1.02);
 }
 
-/* 文字 */
-.section-text{
+/* 文字样式 */
+.section-text {
     max-width: 420px;
     text-align: left;
 }
 
-.section-text h2{
+.section-text h2 {
     font-size: 2.5em;
     color: #ffd966;
+    margin-bottom: 8px;
 }
 
-.section-text .date{
+.section-text .date {
     color: rgba(255,255,255,0.7);
     font-size: 1.1em;
     font-style: italic;
-    margin-bottom: 20px;
+    margin-bottom: 12px;
 }
 
-.section-text p{
+.section-text p {
     font-size: 1.2em;
     line-height: 1.8;
     color: white;
 }
 
-/* 左右交替 */
-.scroll-section:nth-child(even){
+/* 左右交替布局 */
+.scroll-section:nth-child(even) {
     flex-direction: row-reverse;
 }
 
-/* 滚动出现动画 */
-.scroll-section.visible{
-    opacity:1;
-    transform:translateY(0);
+/* 滚动动画 */
+.scroll-section.visible {
+    opacity: 1;
+    transform: translateY(0);
 }
 
 /* 响应式 */
-@media (max-width: 768px){
-    .scroll-section{
+@media (max-width: 768px) {
+    .scroll-section {
         flex-direction: column !important;
-        text-align:center;
-        gap:40px;
+        text-align: center;
+        gap: 30px;
+        padding: 30px;
     }
-    .section-text{
-        text-align:center;
+
+    .section-text {
+        max-width: 100%;
+        text-align: center;
     }
-    .section-image img{
-        width:100%;
+
+    .section-image img {
+        width: 100%;
+        max-width: 420px;
     }
 }
