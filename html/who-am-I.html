@@ -43,6 +43,10 @@
     <!-- ===== Who am I 页面专属内容 ===== -->
     <div class="who-container">
 
+<div class="whoam-title">
+    <h2>Who am I</h2>
+    <p>Let’s know more about me...</p>
+</div>
 
         <!-- 分类标签 (Who am I? / My Hobbies / My Masterpiece) -->
       <div class="who-categories">
@@ -57,13 +61,82 @@
         </div>
     </div>
 
+
+      <!-- 滚动内容 -->
+    <div class="who-scroll-content">
+
+        <!-- Section 1 -->
+        <div class="scroll-section">
+            <div class="section-image">
+                <img src="../images/me1.jpg" alt="Ariel Yang photo 1">
+            </div>
+            <div class="section-text">
+                <h2>Who am I</h2>
+                <p class="date">2007 - Present</p>
+                <p>
+                    My name is Ariel Yang. I am passionate about technology, game design, and creative media.
+                </p>
+            </div>
+        </div>
+
+        <!-- Section 2 -->
+        <div class="scroll-section">
+            <div class="section-image">
+                <img src="../images/me2.jpg" alt="Ariel Yang photo 2">
+            </div>
+            <div class="section-text">
+                <h2>My Journey</h2>
+                <p>
+                    I started learning programming and digital media creation, exploring different creative fields.
+                </p>
+            </div>
+        </div>
+
+        <!-- Section 3 -->
+        <div class="scroll-section">
+            <div class="section-image">
+                <img src="../images/me3.jpg" alt="Ariel Yang photo 3">
+            </div>
+            <div class="section-text">
+                <h2>My Vision</h2>
+                <p>
+                    I aim to combine technology and art to create immersive experiences, from games to 3D animations.
+                </p>
+            </div>
+        </div>
+
+        <!-- 可继续添加更多 section -->
+
+    </div>
+
     <!-- 页脚 (与主页相同) -->
     <footer class="footer">
         <p>&copy; 2026 My Showcase Website By Ariel Yang</p>
     </footer>
 
+
+
     <!-- 音乐播放器 JS (与主页相同) -->
     <script src="../js/music-player.js"></script>
+
+<!-- 页面滚动动画 JS -->
+    <script>
+        const sections = document.querySelectorAll('.scroll-section');
+
+        function revealSections() {
+            const triggerBottom = window.innerHeight * 0.85;
+            sections.forEach(section => {
+                const sectionTop = section.getBoundingClientRect().top;
+                if(sectionTop < triggerBottom){
+                    section.classList.add('visible');
+                }
+            });
+        }
+
+        window.addEventListener('scroll', revealSections);
+        window.addEventListener('load', revealSections);
+    </script>
+
     <!-- Who am I 页面专属 JS -->
     <script src="../js/who-am-i.js"></script>
 </body>

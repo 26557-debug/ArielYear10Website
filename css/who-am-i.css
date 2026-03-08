@@ -1,5 +1,4 @@
-/* ===== css/who-am-i.css ===== */
-/* 这个文件只影响 who-am-i 页面 */
+/* ===== who-am-i.css ===== */
 
 .who-container {
     max-width: 1200px;
@@ -8,7 +7,7 @@
     min-height: 60vh;
 }
 
-/* ===== 返回Homepage的箭头 ===== */
+/* 返回首页箭头 */
 .back-to-home {
     display: inline-flex;
     align-items: center;
@@ -16,16 +15,16 @@
     cursor: pointer;
     margin: 20px 0 20px 0;
     padding: 10px 20px;
-    background: rgba(0, 0, 0, 0.4);
+    background: rgba(0,0,0,0.4);
     backdrop-filter: blur(10px);
-    border: 1px solid rgba(255, 255, 255, 0.2);
+    border: 1px solid rgba(255,255,255,0.2);
     border-radius: 40px;
     color: white;
     font-size: 16px;
     font-weight: 500;
     transition: all 0.3s ease;
     width: fit-content;
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+    box-shadow: 0 4px 15px rgba(0,0,0,0.2);
 }
 
 .back-to-home:hover {
@@ -45,6 +44,25 @@
     transform: translateX(-3px);
 }
 
+/* ===== Who am I 页面标题 ===== */
+.whoam-title {
+    text-align: center;
+    margin: 20px 0 30px;
+}
+
+.whoam-title h2 {
+    color: #ffd966;
+    font-size: 3em;
+    font-family: 'Impact', 'Arial Black', sans-serif;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+    margin-bottom: 8px;
+}
+
+.whoam-title p {
+    color: rgba(255, 255, 255, 0.8);
+    font-size: 0.95em;
+}
+
 /* 分类标签 */
 .who-categories {
     display: flex;
@@ -56,16 +74,16 @@
 
 .category-btn {
     padding: 12px 35px;
-    background: rgba(255, 255, 255, 0.1);
+    background: rgba(255,255,255,0.1);
     backdrop-filter: blur(10px);
-    border: 1px solid rgba(255, 255, 255, 0.2);
+    border: 1px solid rgba(255,255,255,0.2);
     border-radius: 40px;
     color: white;
     font-size: 18px;
     font-weight: 500;
     cursor: pointer;
     transition: all 0.4s ease;
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+    box-shadow: 0 4px 15px rgba(0,0,0,0.2);
 }
 
 .category-btn:hover {
@@ -83,106 +101,87 @@
     box-shadow: 0 8px 25px rgba(255, 215, 0, 0.4);
 }
 
-/* 动态内容区域 - 动画效果 */
-.who-dynamic-content {
-    position: relative;
-    min-height: 500px;
-}
-
-/* 页面切换动画 */
-.who-page-content {
-    animation: slideInRight 0.5s ease forwards;
-}
-
-@keyframes slideInRight {
-    from {
-        opacity: 0;
-        transform: translateX(50px);
-    }
-    to {
-        opacity: 1;
-        transform: translateX(0);
-    }
-}
-
-/* 滚动内容区域 */
+/* ===== 滚动内容 ===== */
 .who-scroll-content {
-    max-width: 800px;
+    max-width: 1200px;
     margin: 0 auto;
+    padding: 0 20px;
 }
 
+/* 每个 section */
 .scroll-section {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 80px;
     opacity: 0;
-    transform: translateY(50px);
+    transform: translateY(80px);
     transition: all 1s ease;
-    margin-bottom: 120px;
-    text-align: center;
-    background: rgba(0, 0, 0, 0.6);
-    padding: 40px;
+    margin-bottom: 160px;
+    background: rgba(0,0,0,0.6);
+    padding: 60px;
     border-radius: 30px;
     backdrop-filter: blur(10px);
-    border: 1px solid rgba(255, 255, 255, 0.15);
-    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.5);
 }
 
-.scroll-section.visible {
-    opacity: 1;
-    transform: translateY(0);
-}
-
-.scroll-section h2 {
-    color: #ffd966;
-    font-size: 2.5em;
-    margin-bottom: 15px;
-    font-family: 'Impact', 'Arial Black', sans-serif;
-    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
-}
-
-.scroll-section .date {
-    color: rgba(255, 255, 255, 0.7);
-    font-size: 1.1em;
-    margin-bottom: 20px;
-    font-style: italic;
-}
-
-.scroll-section img {
-    width: 100%;
-    max-width: 500px;
-    height: auto;
+/* 图片 */
+.section-image img{
+    width: 420px;
     border-radius: 20px;
-    margin: 25px 0;
-    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.7);
-    border: 3px solid rgba(255, 215, 0, 0.3);
+    box-shadow: 0 15px 40px rgba(0,0,0,0.6);
     transition: transform 0.5s;
 }
 
-.scroll-section img:hover {
+.section-image img:hover{
     transform: scale(1.02);
-    border-color: #ffd966;
 }
 
-.scroll-section p {
-    font-size: 1.2em;
-    line-height: 1.7;
-    color: white;
-    margin: 15px 0;
+/* 文字 */
+.section-text{
+    max-width: 420px;
+    text-align: left;
 }
 
-/* 标签组 (用于 Masterpiece 页面) */
-.tags-group {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 12px;
-    justify-content: center;
-    margin-top: 25px;
-}
-
-.tag {
-    padding: 8px 20px;
-    background: rgba(255, 215, 0, 0.2);
-    border-radius: 30px;
+.section-text h2{
+    font-size: 2.5em;
     color: #ffd966;
-    font-size: 0.95em;
-    border: 1px solid rgba(255, 215, 0, 0.3);
-    backdrop-filter: blur(5px);
+}
+
+.section-text .date{
+    color: rgba(255,255,255,0.7);
+    font-size: 1.1em;
+    font-style: italic;
+    margin-bottom: 20px;
+}
+
+.section-text p{
+    font-size: 1.2em;
+    line-height: 1.8;
+    color: white;
+}
+
+/* 左右交替 */
+.scroll-section:nth-child(even){
+    flex-direction: row-reverse;
+}
+
+/* 滚动出现动画 */
+.scroll-section.visible{
+    opacity:1;
+    transform:translateY(0);
+}
+
+/* 响应式 */
+@media (max-width: 768px){
+    .scroll-section{
+        flex-direction: column !important;
+        text-align:center;
+        gap:40px;
+    }
+    .section-text{
+        text-align:center;
+    }
+    .section-image img{
+        width:100%;
+    }
 }
