@@ -211,7 +211,7 @@
 .hobby-text h2 {
     color: #ffd966;
     font-size: 3.5em;  
-    margin-bottom: 25px;
+    margin-bottom: 15px;
     flex-shrink: 0;
     font-family: 'Impact', 'Arial Black', sans-serif;
     text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
@@ -227,6 +227,13 @@
     color: rgba(255, 255, 255, 0.95); /* 稍微调亮一点 */
     padding-right: 10px; /* 描述文字右边留空 */
 }
+
+.hobby-text p {
+    margin-top: 0;           /* 移除顶部间距 */
+    margin-bottom: 8px;      /* 设置底部间距为8px，根据需要调整 */
+    line-height: 1.4;        /* 稍微紧凑的行高 */
+}
+
 
 /* ===== 小圆点指示器 ===== */
 .dot-indicators {
