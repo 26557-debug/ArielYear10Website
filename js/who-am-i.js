@@ -60,7 +60,6 @@ function switchWhoPage(pageType) {
     } else if (pageType === 'hobbies') {
         document.querySelectorAll('.category-btn')[1].classList.add('active');
     }
-    // 注意：第三个按钮（Masterpiece）保留active状态？不需要，因为它是独立页面
     
     // 添加淡出动画
     contentDiv.style.opacity = '0';

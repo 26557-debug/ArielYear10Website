@@ -17,7 +17,6 @@
      <section class="video-hero" id="videoHero">
     <video id="curtain-video" autoplay muted playsinline>
         <source src="../images/开幕video.MOV" type="video/mp4">
-        <!-- 请把your-curtain-video.mp4替换成你的视频文件名 -->
     </video>
     <!-- 向下滚动提示箭头 -->
     <div class="scroll-hint" onclick="scrollToContent()">↓</div>
@@ -54,8 +53,6 @@
         </div>
 
 
-
-        <!-- 使用CSS中定义的类名 -->
         <div class="image-creation-container">
             <!-- 头部区域 -->
             <div class="ic-header">
@@ -72,7 +69,6 @@
                 <span class="category">???</span>
             </div>
 
-            <!-- 作品画廊 - 使用 ic-gallery 和 art-card -->
             <div class="ic-gallery">
                 <!-- 作品卡片 1 -->
                 <div class="art-card">
@@ -149,14 +145,14 @@
         </div>
     </section>
 
-    <!-- 页脚 -->
+
     <footer class="footer">
         <p>&copy; 2026 My Showcase Website By Ariel Yang</p>
     </footer>
 
     <script>
 
-// ===== 幕布视频控制 =====
+// ===== js =====
     const curtainVideo = document.getElementById('curtain-video');
     
     // 确保视频播放并停在最后一帧
@@ -171,7 +167,6 @@
         topicSection.scrollIntoView({ behavior: 'smooth' });
     }
 
-    // 可选：按任意键或点击屏幕也可以向下滚动
     document.addEventListener('keydown', function(event) {
         if (event.key === 'ArrowDown' || event.code === 'Space') {
             event.preventDefault();

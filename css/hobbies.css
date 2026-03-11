@@ -1,7 +1,4 @@
-/* ===== hobbies.css ===== */
-/* Hobbies页面的专属样式 */
-
-/* 进入特效 - 恢复slideInRight动画 */
+/* 进入特效-slideInRight animation */
 @keyframes slideInRight {
     from {
         opacity: 0;
@@ -60,7 +57,7 @@
     box-shadow: 0 8px 25px rgba(255, 215, 0, 0.4);
 }
 
-/* ===== 标题区域 - 类似Masterpiece风格 ===== */
+/* ===== 标题区域 ===== */
 .hobbies-header {
     text-align: center;
     margin: 20px 0 30px;
@@ -109,7 +106,6 @@
     width: max-content;
 }
 
-/* 卡片样式 */
 .hobby-card {
     flex: 0 0 800px;
     height: 600px;
@@ -224,18 +220,18 @@
     margin-bottom: 25px;
     flex: 1;
     overflow-y: auto;
-    color: rgba(255, 255, 255, 0.95); /* 稍微调亮一点 */
-    padding-right: 10px; /* 描述文字右边留空 */
+    color: rgba(255, 255, 255, 0.95); 
+    padding-right: 10px; 
 }
 
 .hobby-text p {
-    margin-top: 0;           /* 移除顶部间距 */
-    margin-bottom: 8px;      /* 设置底部间距为8px，根据需要调整 */
-    line-height: 1.4;        /* 稍微紧凑的行高 */
+    margin-top: 0;           
+    margin-bottom: 8px;     
+    line-height: 1.4;      
 }
 
 
-/* ===== 小圆点指示器 ===== */
+/* ===== DOTS===== */
 .dot-indicators {
     display: flex;
     justify-content: center;
@@ -265,7 +261,7 @@
     box-shadow: 0 0 15px #ffd966;
 }
 
-/* ===== 下方图片画廊 ===== */
+/* ===== Bottom img gallery ===== */
 .hobbies-gallery {
     width: 100%;
     overflow-x: auto;

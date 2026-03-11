@@ -3,7 +3,6 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <!-- 所有页面都引用同一个CSS文件 -->
     <link rel="stylesheet" href="../css/styles_ic.css">
     <title>Computer Science - Ariel's Portfolio</title>
 </head>
@@ -18,7 +17,6 @@
      <section class="video-hero" id="videoHero">
     <video id="curtain-video" autoplay muted playsinline>
         <source src="../images/开幕video.MOV" type="video/mp4">
-        <!-- 请把your-curtain-video.mp4替换成你的视频文件名 -->
     </video>
     <!-- 向下滚动提示箭头 -->
     <div class="scroll-hint" onclick="scrollToContent()">↓</div>
@@ -60,13 +58,12 @@
         <!-- 从这里开始每个页面写不同的内容，但类名可以沿用或新建 -->
         <div class="image-creation-container">  <!-- 可以沿用这个类名，或者改成对应页面的类名 -->
             
-            <!-- 头部区域 (修改标题和副标题) -->
+         
             <div class="ic-header">
-                <h1 class="ic-title">Computer Science</h1>  <!-- 修改标题 -->
-                <p class="ic-subtitle">My Computer Science Projects</p>  <!-- 修改副标题 -->
+                <h1 class="ic-title">Computer Science</h1>  
+                <p class="ic-subtitle">My Computer Science Projects</p> 
             </div>
 
-            <!-- 分类标签 (可以修改成对应页面的分类) -->
             <div class="ic-categories">
                 <span class="category active">All Works</span>
                 <span class="category">??</span>
@@ -75,7 +72,6 @@
                 <span class="category">??</span>
             </div>
 
-            <!-- 作品画廊 (放这个页面独有的作品) -->
             <div class="ic-gallery">
                 <!-- 作品卡片 1 -->
                 <div class="art-card">
@@ -110,7 +106,6 @@
                     </div>
                 </div>
 
-                <!-- 占位卡片 (每个页面都可以保留) -->
                 <div class="art-card placeholder">
                     <div class="art-image">
                         <div class="placeholder-icon">🖼️</div>
@@ -126,7 +121,6 @@
                 </div>
             </div>
 
-            <!-- 工具区 (修改成对应页面的工具) -->
             <div class="ic-tools">
                 <h2>My Tools</h2>
                 <div class="tools-grid">
@@ -159,7 +153,7 @@
 
     <script>
 
-// ===== 幕布视频控制 =====
+// ===== js =====
     const curtainVideo = document.getElementById('curtain-video');
     
     // 确保视频播放并停在最后一帧
@@ -174,7 +168,6 @@
         topicSection.scrollIntoView({ behavior: 'smooth' });
     }
 
-    // 可选：按任意键或点击屏幕也可以向下滚动
     document.addEventListener('keydown', function(event) {
         if (event.key === 'ArrowDown' || event.code === 'Space') {
             event.preventDefault();

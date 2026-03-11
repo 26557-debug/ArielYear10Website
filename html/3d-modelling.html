@@ -16,7 +16,6 @@
      <section class="video-hero" id="videoHero">
     <video id="curtain-video" autoplay muted playsinline>
         <source src="../images/开幕video.MOV" type="video/mp4">
-        <!-- 请把your-curtain-video.mp4替换成你的视频文件名 -->
     </video>
     <!-- 向下滚动提示箭头 -->
     <div class="scroll-hint" onclick="scrollToContent()">↓</div>
@@ -170,7 +169,7 @@
         topicSection.scrollIntoView({ behavior: 'smooth' });
     }
 
-    // 可选：按任意键或点击屏幕也可以向下滚动
+   
     document.addEventListener('keydown', function(event) {
         if (event.key === 'ArrowDown' || event.code === 'Space') {
             event.preventDefault();
