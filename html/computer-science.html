@@ -65,16 +65,16 @@
             </div>
 
             <div class="ic-categories">
-                <span class="category active">All Works</span>
-                <span class="category">Binary & Hexadecimal</span>
-                <span class="category">ASCII & UTF-8</span>
-                <span class="category">ERROR DETECTION</span>
-                <span class="category">Searching & Sorting Algorithms</span>
+                <span class="category active" data-category="all">All Works</span>
+                <span class="category" data-category="hex">Binary & Hexadecimal</span>
+                <span class="category" data-category="ascii">ASCII & UTF-8</span>
+                <span class="category" data-category="error">ERROR DETECTION</span>
+                <span class="category" data-category="algorithms">Searching & Sorting Algorithms</span>
             </div>
 
             <div class="ic-gallery">
                 <!-- 作品卡片 1 -->
-                <div class="art-card">
+                <div class="art-card" data-category="hex">
                     <div class="art-image" onclick="window.open('../img2/Dragon_Hexcodes.png', '_blank')">
                         <img src="../img2/Dragon_Hexcodes.png" alt="../img2/Dragon_Hexcodes.png">
                     </div>
@@ -91,7 +91,7 @@
                 </div>
 
                 <!-- 作品卡片 2 - 复制上面的卡片修改 -->
-                <div class="art-card">
+                <div class="art-card" data-category="ascii">
                     <div class="art-image" onclick="window.open('../img2/ASCII-art.png', '_blank')">
                         <img src="../img2/ASCII-art.png" alt="../img2/ASCII-art.png">
                     </div>
@@ -105,7 +105,7 @@
                     </div>
                 </div>
 
-                <div class="art-card placeholder">
+                <div class="art-card placeholder" data-category="all">
                     <div class="art-image">
                         <div class="placeholder-icon">🖼️</div>
                     </div>
@@ -125,19 +125,11 @@
                 <div class="tools-grid">
                     <div class="tool-item">
                         <span class="tool-icon">🌐</span>
-                        <span>??</span>
+                        <span>GIMP</span>
                     </div>
                     <div class="tool-item">
-                        <span class="tool-icon">🎨</span>
-                        <span>??</span>
-                    </div>
-                    <div class="tool-item">
-                        <span class="tool-icon">⚡</span>
-                        <span>??</span>
-                    </div>
-                    <div class="tool-item">
-                        <span class="tool-icon">⚛️</span>
-                        <span>??</span>
+                        <span class="tool-icon">🆒</span>
+                        <span>ASCII Converters</span>
                     </div>
                 </div>
             </div>
@@ -153,6 +145,30 @@
     <script>
 
 // ===== js =====
+const categories = document.querySelectorAll(".category");
+const cards = document.querySelectorAll(".art-card");
+
+categories.forEach(btn => {
+
+    btn.addEventListener("click", () => {
+        categories.forEach(b => b.classList.remove("active"));
+        btn.classList.add("active");
+
+        const selected = btn.dataset.category;
+
+        cards.forEach(card => {
+
+            const cardCat = card.dataset.category;
+
+            if (selected === "all" || cardCat.includes(selected)) {
+                card.style.display = "block";
+            } else {
+                card.style.display = "none";
+            }
+        });
+    });
+});
+
     const curtainVideo = document.getElementById('curtain-video');
     
     // 确保视频播放并停在最后一帧

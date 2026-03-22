@@ -64,17 +64,16 @@
 
             <!-- 分类标签 -->
             <div class="ic-categories">
-                <span class="category active">All Works</span>
-                <span class="category">Pixel Art</span>
-                <span class="category">GIMP</span>
-                <span class="category">Inkscape</span>
-                <span class="category">Character Cretaion</span>
+                <span class="category active" data-category="all">All Works</span>
+                <span class="category" data-category="pixel">Pixel Art</span>
+                <span class="category" data-category="gimp">GIMP</span>
+                <span class="category" data-category="ink">Inkscape</span>
             </div>
 
             <!-- 作品画廊 - 使用 ic-gallery 和 art-card -->
             <div class="ic-gallery">
                 <!-- 作品卡片 1 -->
-                <div class="art-card" onclick="window.open('../images/Green Screen Adventure Created in Gimp_Ariel Yang copy.PNG', '_blank')">
+                <div class="art-card" data-category="gimp" onclick="window.open('../images/Green Screen Adventure Created in Gimp_Ariel Yang copy.PNG', '_blank')">
                     <div class="art-image">
                         <img src="../images/Green Screen Adventure Created in Gimp_Ariel Yang copy.PNG" alt="Green Screen Adventure Created in Gimp">
                     </div>
@@ -91,7 +90,7 @@
                 </div>
 
                 <!-- 作品卡片 2 -->
-                <div class="art-card" onclick="window.open('../images/Inkscape Character Ling Song_ariel yang copy.PNG', '_blank')">
+                <div class="art-card" data-category="ink" onclick="window.open('../images/Inkscape Character Ling Song_ariel yang copy.PNG', '_blank')">
                     <div class="art-image">
                         <img src="../images/Inkscape Character Ling Song_ariel yang copy.PNG" alt="Inkscape Character">
                     </div>
@@ -108,7 +107,7 @@
                 </div>
 
                 <!-- 占位卡片 -->
-                <div class="art-card placeholder">
+                <div class="art-card placeholder" data-category="all">
                     <div class="art-image">
                         <div class="placeholder-icon">🖼️</div>
                     </div>
@@ -152,6 +151,33 @@
     <footer class="footer">
         <p>&copy; 2026 My Showcase Website By Ariel Yang</p>
     </footer>
+
+
+    <script>
+    const categories = document.querySelectorAll(".category");
+const cards = document.querySelectorAll(".art-card");
+
+categories.forEach(btn => {
+
+    btn.addEventListener("click", () => {
+        categories.forEach(b => b.classList.remove("active"));
+        btn.classList.add("active");
+
+        const selected = btn.dataset.category;
+
+        cards.forEach(card => {
+
+            const cardCat = card.dataset.category;
+
+            if (selected === "all" || cardCat.includes(selected)) {
+                card.style.display = "block";
+            } else {
+                card.style.display = "none";
+            }
+        });
+    });
+});
+</script>
 
     <script>
     const bgm = document.getElementById("bgm");
